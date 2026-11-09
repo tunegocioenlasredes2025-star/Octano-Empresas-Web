@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow"><!-- se saca cuando esté el dominio y el WhatsApp -->
+<title>Octano Empresas · Ordenamos tu empresa. Impulsamos tus ventas.</title>
+<meta name="description" content="Sistemas de gestión y apps a medida, web, WhatsApp automático, redes y clientes para empresas y fábricas. Demo en 48 horas antes de cobrar.">
+<meta property="og:title" content="Octano Empresas">
+<meta property="og:description" content="Ordenamos tu empresa. Impulsamos tus ventas. Sistemas a medida, web, WhatsApp y clientes para empresas y fábricas.">
+<meta property="og:image" content="img/logo-negro.png">
+<link rel="icon" href="img/iso-teal.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --alabastro:#EAEAEA; --indigo:#313D5A; --teal:#183642; --negro:#000;
+  --blanco:#fff; --texto:#1b2230; --suave:#5b6474; --linea:#d6d8dc;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;color:var(--texto);background:var(--blanco);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:Montserrat,sans-serif;line-height:1.15;letter-spacing:-.01em}
+.num{font-family:"Barlow Semi Condensed",sans-serif}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+section{padding:96px 0}
+.eyebrow{font-family:"Barlow Semi Condensed",sans-serif;font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;color:var(--indigo)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:Montserrat,sans-serif;font-weight:700;font-size:1rem;padding:16px 26px;text-decoration:none;border:2px solid transparent;transition:.2s;cursor:pointer;clip-path:polygon(0 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%)}
+.btn-primario{background:var(--teal);color:#fff}
+.btn-primario:hover{background:var(--indigo)}
+.btn-claro{background:#fff;color:var(--teal)}
+.btn-claro:hover{background:var(--alabastro)}
+.btn-borde{border-color:currentColor;color:inherit;background:transparent}
+.btn svg{width:20px;height:20px}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+header img{height:34px;width:auto}
+nav{display:flex;gap:28px;align-items:center}
+nav a{text-decoration:none;font-weight:500;font-size:.95rem;color:var(--suave)}
+nav a:hover{color:var(--teal)}
+nav .btn{padding:10px 18px;font-size:.9rem;color:#fff}
+@media(max-width:860px){nav a:not(.btn){display:none}}
+
+/* hero */
+.hero{background:var(--teal);color:#fff;position:relative;overflow:hidden;padding:110px 0 120px}
+.hero::after{content:"";position:absolute;right:-8%;top:0;bottom:0;width:46%;background:linear-gradient(90deg,var(--indigo),var(--indigo));clip-path:polygon(38% 0,100% 0,100% 100%,0 100%);opacity:.9}
+.hero::before{content:"";position:absolute;right:30%;top:0;bottom:0;width:9%;background:var(--alabastro);clip-path:polygon(70% 0,100% 0,30% 100%,0 100%);opacity:.12;z-index:1}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
+.hero .eyebrow{color:#9fb6c2}
+.hero h1{font-size:clamp(2.4rem,5.4vw,4.1rem);font-weight:800;margin:18px 0 22px}
+.hero h1 span{display:block;color:#a9c3cf}
+.hero p.lead{font-size:1.2rem;max-width:560px;color:#d8e2e7}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.hero .ctas .btn-borde{color:#fff}
+.hero .iso{justify-self:center;width:min(300px,70%);opacity:.95}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero .iso{display:none}.hero::after{width:30%;opacity:.5}}
+
+/* barra de datos */
+.datos{background:var(--alabastro);padding:38px 0}
+.datos .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.dato b{display:block;font-family:"Barlow Semi Condensed",sans-serif;font-size:2.3rem;font-weight:700;color:var(--teal);line-height:1}
+.dato span{font-size:.92rem;color:var(--suave)}
+@media(max-width:760px){.datos .wrap{grid-template-columns:1fr 1fr}}
+
+/* problema */
+.problema .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.problema h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-top:14px}
+.dolores{list-style:none;display:grid;gap:14px}
+.dolores li{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;border:1px solid var(--linea);background:#fff}
+.dolores li::before{content:"";flex:none;width:12px;height:12px;margin-top:7px;background:var(--indigo);clip-path:polygon(0 0,100% 0,100% 50%,50% 100%,0 100%)}
+@media(max-width:860px){.problema .wrap{grid-template-columns:1fr;gap:32px}}
+
+/* servicios */
+.servicios{background:#f6f6f6}
+.cabecera{max-width:720px;margin-bottom:52px}
+.cabecera h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin:14px 0 14px}
+.cabecera p{color:var(--suave);font-size:1.08rem}
+.areas{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.area{background:#fff;padding:30px 26px 32px;border-top:4px solid var(--teal);position:relative}
+.area:nth-child(2){border-color:var(--indigo)}
+.area:nth-child(3){border-color:var(--teal)}
+.area:nth-child(4){border-color:var(--indigo)}
+.area svg{width:46px;height:46px;stroke:var(--teal);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.area .n{position:absolute;top:22px;right:24px;font-family:"Barlow Semi Condensed",sans-serif;font-weight:700;color:var(--linea);font-size:1.6rem}
+.area h3{font-size:1.2rem;margin:20px 0 10px}
+.area p{color:var(--suave);font-size:.96rem}
+.area ul{margin-top:14px;padding-left:0;list-style:none;font-size:.93rem;display:grid;gap:6px}
+.area li{padding-left:16px;position:relative}
+.area li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:2px;background:var(--teal)}
+@media(max-width:980px){.areas{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.areas{grid-template-columns:1fr}}
+.extras{margin-top:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.extra{background:var(--teal);color:#fff;padding:28px 26px}
+.extra:nth-child(2){background:var(--indigo)}
+.extra:nth-child(3){background:#000}
+.extra h3{font-size:1.1rem;margin-bottom:8px}
+.extra p{color:#cdd8de;font-size:.95rem}
+@media(max-width:860px){.extras{grid-template-columns:1fr}}
+
+/* atencion */
+.atencion{background:#000;color:#fff;position:relative;overflow:hidden}
+.atencion::before{content:"";position:absolute;left:-6%;top:0;bottom:0;width:22%;background:var(--teal);clip-path:polygon(0 0,60% 0,100% 100%,0 100%);opacity:.7}
+.atencion .wrap{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.atencion .eyebrow{color:#9fb6c2}
+.atencion h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin:14px 0 18px}
+.atencion p{color:#c9ced6}
+.comparo{display:grid;gap:16px}
+.caso{border:1px solid #2b333f;padding:22px 24px;display:flex;align-items:center;gap:22px;background:#0b0f14}
+.caso b{font-family:"Barlow Semi Condensed",sans-serif;font-size:3rem;line-height:1;min-width:120px;color:#fff}
+.caso.bien b{color:#9fd0c0}
+.caso.mal b{color:#e3a3a3}
+.caso span{font-size:.95rem;color:#c9ced6}
+@media(max-width:860px){.atencion .wrap{grid-template-columns:1fr}}
+
+/* proceso */
+.pasos{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:p;border-top:1px solid var(--linea)}
+.paso{padding:30px 26px 10px 0;position:relative}
+.paso::before{counter-increment:p;content:"0" counter(p);font-family:"Barlow Semi Condensed",sans-serif;font-weight:700;font-size:2.6rem;color:var(--teal);display:block;line-height:1;margin-bottom:14px}
+.paso h3{font-size:1.1rem;margin-bottom:8px}
+.paso p{color:var(--suave);font-size:.95rem}
+.paso.destacado::after{content:"Antes de cobrar";position:absolute;top:34px;left:72px;font-family:"Barlow Semi Condensed",sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;background:var(--alabastro);color:var(--teal);padding:3px 9px}
+@media(max-width:860px){.pasos{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.pasos{grid-template-columns:1fr}}
+.garantias{margin-top:46px;display:flex;flex-wrap:wrap;gap:12px}
+.garantias span{border:1px solid var(--linea);padding:9px 16px;font-size:.93rem;font-weight:500}
+
+/* equipo */
+.equipo{background:var(--alabastro)}
+.socios{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.socio{background:#fff}
+.socio .foto{aspect-ratio:4/4.4;background:var(--indigo);position:relative;overflow:hidden;clip-path:polygon(0 0,100% 0,100% 88%,86% 100%,0 100%)}
+.socio .foto img{width:100%;height:100%;object-fit:cover}
+.socio .foto .ini{position:absolute;inset:0;display:grid;place-items:center;font-family:Montserrat,sans-serif;font-weight:800;font-size:4rem;color:rgba(255,255,255,.25)}
+.socio .txt{padding:22px 24px 28px}
+.socio h3{font-size:1.2rem}
+.socio .rol{font-family:"Barlow Semi Condensed",sans-serif;font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem;color:var(--indigo);margin:4px 0 10px;display:block}
+.socio p{color:var(--suave);font-size:.95rem}
+@media(max-width:860px){.socios{grid-template-columns:1fr}}
+
+/* faq */
+.faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px}
+details{border-bottom:1px solid var(--linea);padding:20px 0}
+summary{font-family:Montserrat,sans-serif;font-weight:700;font-size:1.05rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--teal);font-size:1.4rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--suave);margin-top:10px}
+@media(max-width:860px){.faq .wrap{grid-template-columns:1fr;gap:20px}}
+
+/* cierre */
+.cierre{background:var(--teal);color:#fff;text-align:center;position:relative;overflow:hidden}
+.cierre::before,.cierre::after{content:"";position:absolute;top:0;bottom:0;width:18%;background:var(--indigo);opacity:.8}
+.cierre::before{left:0;clip-path:polygon(0 0,100% 0,40% 100%,0 100%)}
+.cierre::after{right:0;clip-path:polygon(60% 0,100% 0,100% 100%,0 100%)}
+.cierre .wrap{position:relative;z-index:1;max-width:760px}
+.cierre h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:16px}
+.cierre p{color:#d3dee4;font-size:1.12rem;margin-bottom:32px}
+.cierre .palabra{font-family:"Barlow Semi Condensed",sans-serif;font-weight:700;letter-spacing:.12em;background:#fff;color:var(--teal);padding:2px 10px}
+
+footer{background:#000;color:#9aa3ad;padding:44px 0;font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer img{height:30px;width:auto}
+footer a{text-decoration:none}
+footer a:hover{color:#fff}
+
+.wa-flotante{position:fixed;right:20px;bottom:20px;z-index:30;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.wa-flotante svg{width:30px;height:30px;fill:#fff}
+
+.aparece{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.aparece.visto{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.aparece{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="#inicio" aria-label="Octano Empresas"><img src="img/logo-negro.png" alt="Octano Empresas"></a>
+    <nav>
+      <a href="#servicios">Qué hacemos</a>
+      <a href="#como">Cómo trabajamos</a>
+      <a href="#equipo">Quiénes somos</a>
+      <a href="#preguntas">Preguntas</a>
+      <a class="btn btn-primario js-wa" href="#contacto">Hablemos</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Para empresas y fábricas</span>
+      <h1>Ordenamos tu empresa.<span>Impulsamos tus ventas.</span></h1>
+      <p class="lead">Sistemas de gestión y apps a medida, web, WhatsApp que contesta solo, redes y clientes nuevos. Todo conectado y con un solo equipo responsable.</p>
+      <div class="ctas">
+        <a class="btn btn-claro js-wa" href="#contacto">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+          Escribinos por WhatsApp
+        </a>
+        <a class="btn btn-borde" href="#servicios">Ver qué hacemos</a>
+      </div>
+    </div>
+    <img class="iso" src="img/iso-blanco.png" alt="">
+  </div>
+</section>
+
+<div class="datos">
+  <div class="wrap">
+    <div class="dato"><b>48 h</b><span>para ver una demo funcionando, con tu marca</span></div>
+    <div class="dato"><b>4</b><span>áreas conectadas: operación, pedidos, redes y clientes</span></div>
+    <div class="dato"><b>1</b><span>solo equipo responsable de todo</span></div>
+    <div class="dato"><b>$0</b><span>hasta que veas la demo y aceptes la propuesta</span></div>
+  </div>
+</div>
+
+<section class="problema">
+  <div class="wrap">
+    <div class="aparece">
+      <span class="eyebrow">Te suena?</span>
+      <h2>Tu empresa vende y produce. Pero todo depende de vos.</h2>
+      <p style="margin-top:18px;color:var(--suave);font-size:1.08rem">La mayoría de las empresas con las que hablamos no necesitan más trabajo: necesitan que lo que ya hacen esté ordenado y que los clientes que llegan no se pierdan en el camino.</p>
+    </div>
+    <ul class="dolores aparece">
+      <li>Los pedidos, el stock y los cobros están en un Excel, en un cuaderno o en la cabeza de alguien.</li>
+      <li>Llegan consultas por WhatsApp y nadie las contesta a tiempo.</li>
+      <li>Tenés Instagram, pero no publicás o no te trae nada.</li>
+      <li>Ya pagaste a un proveedor que te dejó a mitad de camino.</li>
+      <li>Querés vender más, pero no tenés un sistema para seguir a cada cliente.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="servicios" id="servicios">
+  <div class="wrap">
+    <div class="cabecera aparece">
+      <span class="eyebrow">Qué hacemos</span>
+      <h2>Cuatro áreas, pensadas como las piensa el dueño</h2>
+      <p>Arrancamos por lo que más te urge y después vamos sumando. Cada cosa que hacemos se conecta con la anterior.</p>
+    </div>
+    <div class="areas">
+      <article class="area aparece">
+        <span class="n">01</span>
+        <svg viewBox="0 0 48 48"><path d="M24 6 4 16l20 10 20-10L24 6Z"/><path d="m4 24 20 10 20-10"/><path d="m4 32 20 10 20-10"/></svg>
+        <h3>Ordenar la operación</h3>
+        <p>Sistemas de gestión y apps a medida de tu empresa.</p>
+        <ul><li>Clientes, pedidos y stock</li><li>Cobros y vencimientos</li><li>Producción y procesos</li><li>Desde la compu o el celular</li></ul>
+      </article>
+      <article class="area aparece">
+        <span class="n">02</span>
+        <svg viewBox="0 0 48 48"><path d="M4 8h6l5 24h24l5-16H13"/><circle cx="18" cy="40" r="3"/><circle cx="36" cy="40" r="3"/></svg>
+        <h3>Atender y recibir pedidos</h3>
+        <p>Que te encuentren y que pedirte sea fácil.</p>
+        <ul><li>Web con catálogo y pedidos</li><li>WhatsApp que contesta solo</li><li>Lista de precios siempre al día</li></ul>
+      </article>
+      <article class="area aparece">
+        <span class="n">03</span>
+        <svg viewBox="0 0 48 48"><rect x="8" y="10" width="32" height="22" rx="2"/><path d="M3 38h42l-3-6H6l-3 6Z"/></svg>
+        <h3>Mostrar lo que hacés</h3>
+        <p>Redes con contenido real de tu empresa.</p>
+        <ul><li>Grabamos en tu planta</li><li>Edición y publicación</li><li>Instagram, Facebook, TikTok y LinkedIn</li></ul>
+      </article>
+      <article class="area aparece">
+        <span class="n">04</span>
+        <svg viewBox="0 0 48 48"><path d="M8 40V30M18 40V24M28 40V18M38 40V10"/><path d="m6 22 12-10 8 6 16-12"/><path d="M36 6h6v6"/></svg>
+        <h3>Conseguir oportunidades</h3>
+        <p>Clientes nuevos, medidos de punta a punta.</p>
+        <ul><li>Anuncios en Google, Instagram y Facebook</li><li>Búsqueda de empresas</li><li>Cuántos escribieron y cuántos compraron</li></ul>
+      </article>
+    </div>
+    <div class="extras">
+      <div class="extra aparece"><h3>Atendemos tus consultas</h3><p>Un equipo nuestro contesta y sigue a cada interesado por vos. Te pasamos los que están listos para comprar.</p></div>
+      <div class="extra aparece"><h3>Capacitamos a tus vendedores</h3><p>Encuentros semanales con tu equipo de ventas para usar el sistema y cerrar más.</p></div>
+      <div class="extra aparece"><h3>Mejoramos tus procesos</h3><p>Miramos cómo se trabaja en tu planta y te proponemos qué ordenar primero, de empresario a empresario.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="atencion">
+  <div class="wrap">
+    <div class="aparece">
+      <span class="eyebrow">Por qué importa atender</span>
+      <h2>Mismos anuncios. Resultados muy distintos.</h2>
+      <p>La diferencia no estuvo en la publicidad: estuvo en contestar rápido y hacer seguimiento. Por eso no solo te traemos consultas: también nos aseguramos de que alguien las atienda. A vos te queda vender.</p>
+    </div>
+    <div class="comparo aparece">
+      <div class="caso bien"><b class="num">40 / 140</b><span>Un estudio que contestaba al toque: de 140 consultas, 40 clientes.</span></div>
+      <div class="caso mal"><b class="num">1 / 40</b><span>Un consultorio que no llegaba a atender: de 40 consultas, 1 cliente.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="como">
+  <div class="wrap">
+    <div class="cabecera aparece">
+      <span class="eyebrow">Cómo trabajamos</span>
+      <h2>Primero lo ves funcionando. Después decidís.</h2>
+      <p>Sabemos que muchas empresas tuvieron malas experiencias con proveedores. Por eso trabajamos así:</p>
+    </div>
+    <div class="pasos">
+      <div class="paso aparece"><h3>Charla de 30 minutos</h3><p>Nos contás qué hace tu empresa y qué querés resolver primero. En tu planta o por videollamada.</p></div>
+      <div class="paso destacado aparece"><h3>Demo en 48 horas</h3><p>Te mostramos una primera versión funcionando, con tu marca y tus datos de ejemplo.</p></div>
+      <div class="paso aparece"><h3>Propuesta por etapas</h3><p>Por escrito: qué incluye cada etapa, cuánto sale y cuándo se entrega. A medida de tu empresa.</p></div>
+      <div class="paso aparece"><h3>Seguimiento semanal</h3><p>Un solo responsable, una reunión por semana y cada etapa se paga cuando está entregada.</p></div>
+    </div>
+    <div class="garantias aparece">
+      <span>Precio cerrado por etapa</span><span>Sin letra chica</span><span>Separamos implementación, mensual y publicidad</span><span>El sistema es tuyo</span>
+    </div>
+  </div>
+</section>
+
+<section class="equipo" id="equipo">
+  <div class="wrap">
+    <div class="cabecera aparece">
+      <span class="eyebrow">Quiénes somos</span>
+      <h2>Un empresario y un equipo de producción digital</h2>
+      <p>Te habla alguien que conoce una fábrica por dentro, y lo hace un equipo que arma sistemas, webs y campañas todos los días.</p>
+    </div>
+    <div class="socios">
+      <article class="socio aparece">
+        <div class="foto"><span class="ini">FM</span><!-- <img src="img/fer.jpg" alt="Fer Masso"> --></div>
+        <div class="txt"><h3>Fer Masso</h3><span class="rol">Empresas y asesoramiento</span><p>Años de experiencia llevando fábricas y proyectos. Es quien escucha a cada empresa, entiende cómo trabaja y arma la solución con vos.</p></div>
+      </article>
+      <article class="socio aparece">
+        <div class="foto"><span class="ini">M</span><!-- <img src="img/mateo.jpg" alt="Mateo"> --></div>
+        <div class="txt"><h3>Mateo</h3><span class="rol">Sistemas, apps y webs</span><p>Convierte planillas y papeles en sistemas simples, que se usan desde la compu o el celular.</p></div>
+      </article>
+      <article class="socio aparece">
+        <div class="foto"><span class="ini">SS</span><!-- <img src="img/stalla.jpg" alt="Santi Stalla"> --></div>
+        <div class="txt"><h3>Santi Stalla</h3><span class="rol">Contenido, anuncios y WhatsApp</span><p>Hace que te encuentren y que ninguna consulta quede sin contestar. Graba, edita, pauta y mide.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="preguntas">
+  <div class="wrap">
+    <div class="aparece">
+      <span class="eyebrow">Preguntas</span>
+      <h2 style="font-size:clamp(1.9rem,3.6vw,2.7rem);margin-top:14px">Lo que nos preguntan siempre</h2>
+    </div>
+    <div class="aparece">
+      <details><summary>Cuánto sale?</summary><p>Depende de qué necesita tu empresa: cada propuesta es a medida y por etapas. En la primera charla te damos un rango, y con la demo, el precio cerrado de cada etapa.</p></details>
+      <details><summary>Hay que pagar algo antes de ver la demo?</summary><p>No. La demo la hacemos en 48 horas y sin cargo. Si te sirve, avanzamos con la propuesta.</p></details>
+      <details><summary>Ya tengo un programa (o un Excel). Lo tengo que tirar?</summary><p>No necesariamente. Muchas veces conectamos lo que ya usás o pasamos tus datos al sistema nuevo para que no arranques de cero.</p></details>
+      <details><summary>Cuánto tarda un sistema?</summary><p>Una primera versión para usar en el día a día sale en 4 a 6 semanas. Un WhatsApp automático, en 1 a 3 semanas.</p></details>
+      <details><summary>Trabajan solo en Buenos Aires?</summary><p>Estamos en zona oeste del Gran Buenos Aires y trabajamos con empresas de todo el país: lo que no se hace en persona, se hace por videollamada.</p></details>
+      <details><summary>Y si después necesito cambios?</summary><p>Tenemos mantenimiento mensual para sumar cosas y que todo siga andando. El sistema es tuyo.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="cierre" id="contacto">
+  <div class="wrap aparece">
+    <h2>Contanos qué querés resolver primero</h2>
+    <p>Escribinos <span class="palabra">FÁBRICA</span> al WhatsApp y coordinamos una charla de 30 minutos. Sin compromiso.</p>
+    <a class="btn btn-claro js-wa" href="#contacto">Escribinos por WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="img/logo-blanco.png" alt="Octano Empresas">
+    <span>Ordenamos tu empresa. Impulsamos tus ventas.</span>
+    <span>
+      <a href="#" aria-label="Instagram">Instagram</a> ·
+      <a href="#" aria-label="LinkedIn">LinkedIn</a> ·
+      <a href="#" aria-label="TikTok">TikTok</a> ·
+      <a href="#" aria-label="Facebook">Facebook</a>
+    </span>
+  </div>
+</footer>
+
+<a class="wa-flotante js-wa" href="#contacto" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+</a>
+
+<script>
+// Número de WhatsApp de la agencia (chip nuevo). Formato: 5491100000000. Mientras esté vacío, los botones bajan al cierre.
+const WHATSAPP = "";
+const MENSAJE = "Hola! Les escribo desde la web. FÁBRICA";
+if (WHATSAPP) {
+  document.querySelectorAll(".js-wa").forEach(a => {
+    a.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(MENSAJE);
+    a.target = "_blank"; a.rel = "noopener";
+  });
+}
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visto"); io.unobserve(e.target); } }), { threshold: .12 });
+document.querySelectorAll(".aparece").forEach(el => io.observe(el));
+</script>
+</body>
+</html>
