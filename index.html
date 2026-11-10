@@ -156,7 +156,9 @@ header.abierto .menu-btn i:nth-child(2){transform:rotate(-45deg)}
 .hero-izq .lead{max-width:520px;margin-top:28px}
 /* la O de Octano animada */
 .o-escena{perspective:1100px;justify-self:center;width:min(100%,440px)}
-.o-img{width:100%;height:auto}
+/* la O gira despacio, de un lado a otro (una imagen plana no puede dar la vuelta entera sin verse finita) */
+.o-img{width:100%;height:auto;transform-origin:50% 50%;animation:o-gira 9s ease-in-out infinite}
+@keyframes o-gira{0%,100%{transform:rotateY(-24deg)}50%{transform:rotateY(24deg)}}
 .hero .etq{color:var(--alabastro)}
 .hero h1{margin-top:24px}
 .hero h1 .sub{display:block;font-family:"Barlow Semi Condensed",sans-serif;font-weight:600;font-size:clamp(1rem,1.5vw,1.2rem);letter-spacing:.14em;text-transform:uppercase;color:var(--t-cla);margin-bottom:18px}
