@@ -3,550 +3,486 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow"><!-- se saca cuando esté el dominio y el WhatsApp -->
-<title>Octano Empresas · Ordenamos tu empresa. Impulsamos tus ventas.</title>
-<meta name="description" content="Sistemas de gestión y apps a medida, web, WhatsApp automático, redes y clientes para empresas y fábricas. Demo en 48 horas antes de cobrar.">
-<meta property="og:title" content="Octano Empresas">
-<meta property="og:description" content="Ordenamos tu empresa. Impulsamos tus ventas. Sistemas a medida, web, WhatsApp y clientes para empresas y fábricas.">
-<meta property="og:image" content="img/logo-negro.png">
+<!-- CUANDO ESTÉ EL DOMINIO: sacar esta línea, cambiar DOMINIO abajo (canonical, og, JSON-LD), robots.txt y sitemap.xml -->
+<meta name="robots" content="noindex, nofollow">
+<title>Octano Empresas | Sistemas a medida, web y marketing para empresas y fábricas</title>
+<meta name="description" content="Sistemas de gestión y apps a medida, webs, WhatsApp automático, redes y anuncios para empresas y fábricas. Zona oeste, GBA. Demo funcionando en 48 horas, antes de cobrar.">
+<link rel="canonical" href="https://octano-empresas-web.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="Octano Empresas">
+<meta property="og:title" content="Octano Empresas · Ordenamos tu empresa. Impulsamos tus ventas.">
+<meta property="og:description" content="Sistemas a medida, web, WhatsApp, redes y anuncios para empresas y fábricas. Demo en 48 horas, antes de cobrar.">
+<meta property="og:url" content="https://octano-empresas-web.vercel.app/">
+<meta property="og:image" content="https://octano-empresas-web.vercel.app/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#183642">
 <link rel="icon" href="img/iso-teal.png">
+<link rel="apple-touch-icon" href="img/iso-teal.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://octano-empresas-web.vercel.app/#empresa",
+      "name": "Octano Empresas",
+      "slogan": "Ordenamos tu empresa. Impulsamos tus ventas.",
+      "description": "Sistemas de gestión y apps a medida, webs, WhatsApp automático, redes y anuncios para empresas y fábricas.",
+      "url": "https://octano-empresas-web.vercel.app/",
+      "logo": "https://octano-empresas-web.vercel.app/img/logo-negro.png",
+      "image": "https://octano-empresas-web.vercel.app/img/og.jpg",
+      "areaServed": [{"@type": "AdministrativeArea", "name": "Gran Buenos Aires"}, {"@type": "Country", "name": "Argentina"}],
+      "address": {"@type": "PostalAddress", "addressRegion": "Buenos Aires", "addressCountry": "AR"},
+      "founder": [
+        {"@type": "Person", "name": "Fernando Masso"},
+        {"@type": "Person", "name": "Mateo De Rosa"},
+        {"@type": "Person", "name": "Santiago Stalla"}
+      ],
+      "knowsAbout": ["Sistemas de gestión a medida", "Aplicaciones a medida", "Desarrollo web", "WhatsApp automático", "Marketing para fábricas", "Anuncios en Google y Meta", "Redes sociales para empresas"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Sistemas de gestión y apps a medida"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Web con catálogo y WhatsApp automático"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Redes con grabación en planta"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Anuncios en Google, Instagram y Facebook"}}
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://octano-empresas-web.vercel.app/#web",
+      "url": "https://octano-empresas-web.vercel.app/",
+      "name": "Octano Empresas",
+      "inLanguage": "es-AR",
+      "publisher": {"@id": "https://octano-empresas-web.vercel.app/#empresa"}
+    }
+  ]
+}
+</script>
+
 <style>
-/* Paleta del brandboard aprobado. Nada fuera de estos 4 colores (más el blanco). */
+/* Paleta del brandboard aprobado: solo estos 4 colores (más el blanco). */
 :root{
   --alabastro:#EAEAEA; --indigo:#313D5A; --teal:#183642; --negro:#000; --blanco:#fff;
-  --t-osc:rgba(0,0,0,.64);        /* texto secundario sobre claro */
-  --t-cla:rgba(234,234,234,.72);  /* texto secundario sobre oscuro */
-  --l-osc:rgba(0,0,0,.14);        /* líneas sobre claro */
-  --l-cla:rgba(234,234,234,.18);  /* líneas sobre oscuro */
-  --corte:-32deg;                 /* ángulo del Corte Octano */
+  --t-osc:rgba(0,0,0,.62); --t-cla:rgba(234,234,234,.74);
+  --l-osc:rgba(0,0,0,.13); --l-cla:rgba(234,234,234,.18);
+  --corte:-32deg;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{font-family:Inter,system-ui,sans-serif;color:var(--negro);background:var(--blanco);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{max-width:100%;display:block}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:Inter,system-ui,sans-serif;color:var(--negro);background:var(--blanco);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{max-width:100%;display:block}
 a{color:inherit}
 h1,h2,h3{font-family:Montserrat,sans-serif;line-height:1.02;letter-spacing:-.025em}
-.num,.etq{font-family:"Barlow Semi Condensed",sans-serif}
-.wrap{width:min(1240px,100% - 48px);margin-inline:auto}
+.wrap{width:min(1200px,100% - 48px);margin-inline:auto}
 @media(max-width:600px){.wrap{width:calc(100% - 32px)}}
-section{padding:120px 0;position:relative}
-@media(max-width:760px){section{padding:80px 0}}
+section{padding:96px 0;position:relative}
+@media(max-width:760px){section{padding:68px 0}}
 
-/* etiqueta: barra diagonal + texto en Barlow */
-.etq{display:inline-flex;align-items:center;gap:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:.82rem}
-.etq::before{content:"";width:22px;height:12px;background:currentColor;transform:skewX(var(--corte))}
-.titulo{font-size:clamp(2.2rem,5vw,4.4rem);font-weight:800;text-transform:uppercase;margin-top:22px}
-.bajada{font-size:1.15rem;max-width:620px;margin-top:22px}
+.etq{display:inline-flex;align-items:center;gap:12px;font-family:"Barlow Semi Condensed",sans-serif;font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:.8rem}
+.etq::before{content:"";width:22px;height:11px;background:currentColor;transform:skewX(var(--corte))}
+.titulo{font-size:clamp(2rem,4.2vw,3.6rem);font-weight:800;text-transform:uppercase;margin-top:18px}
+.cab{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:48px;flex-wrap:wrap}
+.cab p{max-width:380px;color:var(--t-osc)}
 
-/* botones: rectos, con la esquina cortada */
-.btn{display:inline-flex;align-items:center;gap:12px;font-family:Montserrat,sans-serif;font-weight:700;font-size:.92rem;letter-spacing:.06em;text-transform:uppercase;padding:19px 30px;text-decoration:none;transition:background .2s,color .2s;clip-path:polygon(0 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%)}
-.btn svg{width:20px;height:20px;flex:none}
-.btn .flecha{transition:transform .2s}
-.btn:hover .flecha{transform:translateX(4px)}
+.btn{display:inline-flex;align-items:center;gap:12px;font-family:Montserrat,sans-serif;font-weight:700;font-size:.88rem;letter-spacing:.06em;text-transform:uppercase;padding:18px 28px;text-decoration:none;transition:background .2s,color .2s;clip-path:polygon(0 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%)}
+.btn svg{width:20px;height:20px;flex:none;fill:currentColor}
 .btn-alab{background:var(--alabastro);color:var(--teal)}
 .btn-alab:hover{background:var(--blanco)}
 .btn-teal{background:var(--teal);color:var(--blanco)}
 .btn-teal:hover{background:var(--indigo)}
 .btn-linea{color:var(--blanco);box-shadow:inset 0 0 0 1.5px var(--l-cla);clip-path:none}
 .btn-linea:hover{box-shadow:inset 0 0 0 1.5px var(--alabastro)}
-
-/* isotipo de color con máscara (sale del PNG de la marca) */
 .iso{-webkit-mask:url(img/iso-blanco.png) center/contain no-repeat;mask:url(img/iso-blanco.png) center/contain no-repeat;aspect-ratio:637/569}
 
-/* ---------- header ---------- */
+/* header */
 header{position:fixed;inset:0 0 auto;z-index:40;transition:background .3s,box-shadow .3s}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:84px;transition:height .3s}
-header .logo{height:36px;position:relative;aspect-ratio:1745/513}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+header .logo{height:32px;position:relative;aspect-ratio:1745/513}
 header .logo img{position:absolute;inset:0;height:100%;width:auto;transition:opacity .3s}
 header .logo .ln{opacity:0}
-nav{display:flex;gap:34px;align-items:center}
-nav a{text-decoration:none;font-weight:500;font-size:.93rem;color:var(--t-cla);transition:color .2s}
+nav{display:flex;gap:30px;align-items:center}
+nav a{text-decoration:none;font-weight:500;font-size:.92rem;color:var(--t-cla);transition:color .2s}
 nav a:hover{color:var(--blanco)}
-nav .btn{padding:13px 22px;font-size:.8rem}
+nav .btn{padding:12px 20px;font-size:.78rem}
 header.solido{background:var(--blanco);box-shadow:0 1px 0 var(--l-osc)}
-header.solido .wrap{height:70px}
 header.solido .lb{opacity:0}
 header.solido .ln{opacity:1}
 header.solido nav a{color:var(--t-osc)}
 header.solido nav a:hover{color:var(--negro)}
 header.solido nav .btn-alab{background:var(--teal);color:var(--blanco)}
-@media(max-width:900px){nav a:not(.btn){display:none}header .logo{height:30px}}
+@media(max-width:900px){nav a:not(.btn){display:none}header .logo{height:28px}}
 
-/* ---------- hero ---------- */
-.hero{background:var(--teal);color:var(--blanco);padding:168px 0 0;overflow:hidden;min-height:100svh;display:flex;flex-direction:column}
-.cortes{position:absolute;top:0;bottom:0;right:-6%;width:58%;display:flex;gap:2.2vw;pointer-events:none}
+/* hero con video */
+.hero{background:var(--teal);color:var(--blanco);padding:150px 0 0;overflow:hidden}
+.cortes{position:absolute;top:0;height:78%;right:-4%;width:46%;display:flex;gap:2vw;pointer-events:none}
 .cortes i{flex:1;transform:skewX(var(--corte));transform-origin:bottom}
-.cortes i:nth-child(1){background:var(--alabastro);opacity:.06}
-.cortes i:nth-child(2){background:var(--indigo);opacity:.9}
-.cortes i:nth-child(3){background:var(--negro);opacity:.28}
+.cortes i:nth-child(1){background:var(--alabastro);opacity:.05}
+.cortes i:nth-child(2){background:var(--indigo);opacity:.85}
+.cortes i:nth-child(3){background:var(--negro);opacity:.25}
 .hero .wrap{position:relative;z-index:2}
-.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:48px;align-items:center;flex:1}
+.hero-txt{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:end}
 .hero .etq{color:var(--alabastro)}
-.hero h1{font-size:clamp(2.7rem,6.6vw,6.4rem);font-weight:900;text-transform:uppercase;line-height:.93;letter-spacing:-.035em;margin:30px 0 32px}
-.hero h1 .linea{display:block}
+.hero h1{margin-top:24px}
+.hero h1 .sub{display:block;font-family:"Barlow Semi Condensed",sans-serif;font-weight:600;font-size:clamp(1rem,1.5vw,1.2rem);letter-spacing:.14em;text-transform:uppercase;color:var(--t-cla);margin-bottom:18px}
+.hero h1 .grande{display:block;font-size:clamp(2.6rem,6.2vw,5.8rem);font-weight:900;text-transform:uppercase;line-height:.93;letter-spacing:-.035em}
 .hero h1 .marca{position:relative;display:inline-block;color:var(--teal);padding:0 .14em;margin-left:-.14em;z-index:0}
 .hero h1 .marca::before{content:"";position:absolute;inset:.06em 0 .02em;background:var(--alabastro);transform:skewX(var(--corte));z-index:-1}
-.hero .lead{font-size:clamp(1.05rem,1.4vw,1.25rem);max-width:540px;color:var(--t-cla)}
+.hero .lead{font-size:1.08rem;color:var(--t-cla)}
 .hero .lead b{color:var(--blanco);font-weight:600}
-.ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.video{position:relative;margin-top:64px;aspect-ratio:16/9;background:var(--negro);clip-path:polygon(0 0,100% 0,100% calc(100% - 48px),calc(100% - 48px) 100%,0 100%);box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.video video{width:100%;height:100%;object-fit:cover}
+.video .sello{position:absolute;left:0;bottom:0;background:var(--alabastro);color:var(--teal);font-family:"Barlow Semi Condensed";font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;padding:10px 16px}
+.hero-pie{position:relative;z-index:1;background:linear-gradient(transparent 50%,var(--blanco) 50%)}
+@media(max-width:900px){.hero-txt{grid-template-columns:1fr;gap:20px}.hero{padding-top:120px}.video{margin-top:40px;clip-path:polygon(0 0,100% 0,100% calc(100% - 24px),calc(100% - 24px) 100%,0 100%)}.cortes{width:90%;right:-45%}}
 
-/* maqueta: lo que armamos (sistema + WhatsApp) */
-.maqueta{position:relative;height:590px}
-.panel{position:absolute;top:0;right:0;width:min(440px,100%);background:var(--blanco);color:var(--negro);box-shadow:0 40px 80px -20px rgba(0,0,0,.55);clip-path:polygon(0 0,100% 0,100% calc(100% - 26px),calc(100% - 26px) 100%,0 100%)}
-.panel-top{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--negro);color:var(--alabastro)}
-.panel-top .iso{width:18px;background:var(--alabastro)}
-.panel-top span{font-family:"Barlow Semi Condensed";font-weight:600;letter-spacing:.14em;font-size:.72rem;text-transform:uppercase}
-.panel-top em{font-style:normal;font-size:.72rem;opacity:.6}
-.kpis{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--l-osc)}
-.kpi{padding:16px 20px}
-.kpi+.kpi{border-left:1px solid var(--l-osc)}
-.kpi small{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--t-osc);font-weight:600}
-.kpi b{font-family:"Barlow Semi Condensed";font-weight:700;font-size:2rem;line-height:1.1;color:var(--teal)}
-.grafico{display:flex;align-items:flex-end;gap:7px;height:96px;padding:18px 20px 0}
-.grafico i{flex:1;background:var(--alabastro);height:var(--h)}
-.grafico i.hoy{background:var(--teal)}
-.grafico i.sem{background:var(--indigo)}
-.pedidos{list-style:none;padding:12px 20px 30px}
-.pedidos li{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-top:1px solid var(--l-osc);font-size:.84rem}
-.pedidos li:first-child{border-top:0}
-.pedidos .est{font-family:"Barlow Semi Condensed";font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;padding:3px 9px}
-.est.ok{background:var(--teal);color:var(--blanco)}
-.est.pr{background:var(--indigo);color:var(--blanco)}
-.est.nv{background:var(--alabastro);color:var(--negro)}
-.chat{position:absolute;left:0;bottom:0;width:300px;background:var(--negro);color:var(--blanco);padding:18px 18px 20px;box-shadow:0 30px 60px -15px rgba(0,0,0,.6);clip-path:polygon(0 0,100% 0,100% 100%,22px 100%,0 calc(100% - 22px))}
-.chat-top{display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:.8rem}
-.chat-top .pto{width:8px;height:8px;background:var(--alabastro);transform:skewX(var(--corte))}
-.chat-top b{font-weight:600}
-.chat-top em{margin-left:auto;font-style:normal;color:var(--t-cla);font-size:.72rem}
-.msj{font-size:.84rem;line-height:1.45;padding:10px 13px;max-width:88%;margin-top:8px}
-.msj.el{background:#1a1a1a;color:var(--alabastro)}
-.msj.yo{background:var(--indigo);margin-left:auto}
-.msj small{display:block;font-family:"Barlow Semi Condensed";font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;opacity:.6;margin-top:4px}
-@media(max-width:980px){.hero-grid{grid-template-columns:1fr}.maqueta{height:460px;max-width:480px;margin-top:20px}.cortes{width:90%;right:-40%}}
-@media(max-width:520px){.hero{padding-top:128px}.maqueta{height:450px}.chat{width:255px}.panel{width:92%}.kpi b{font-size:1.6rem}.kpi{padding:12px 14px}.kpi small{font-size:.6rem;letter-spacing:.06em}}
+/* datos */
+.datos{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--l-osc)}
+.dato{padding:30px 22px 30px 0}
+.dato+.dato{padding-left:24px;border-left:1px solid var(--l-osc)}
+.dato b{display:block;font-family:"Barlow Semi Condensed";font-weight:700;font-size:clamp(2.2rem,3.6vw,3.2rem);line-height:1;color:var(--teal)}
+.dato span{display:block;margin-top:6px;font-size:.9rem;color:var(--t-osc)}
+@media(max-width:760px){.datos{grid-template-columns:1fr 1fr}.dato:nth-child(3){padding-left:0;border-left:0}.dato:nth-child(n+3){border-top:1px solid var(--l-osc)}}
 
-/* datos al pie del hero */
-.datos{position:relative;z-index:2;margin-top:90px;border-top:1px solid var(--l-cla)}
-.datos .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
-.dato{padding:30px 24px 38px 0}
-.dato+.dato{padding-left:28px;border-left:1px solid var(--l-cla)}
-.dato b{display:block;font-family:"Barlow Semi Condensed";font-weight:700;font-size:clamp(2.4rem,4vw,3.6rem);line-height:1;color:var(--blanco)}
-.dato span{display:block;margin-top:8px;font-size:.9rem;color:var(--t-cla);max-width:230px}
-@media(max-width:760px){.datos .wrap{grid-template-columns:1fr 1fr}.dato:nth-child(3){padding-left:0;border-left:0}.dato:nth-child(n+3){border-top:1px solid var(--l-cla)}}
-
-/* ---------- problema ---------- */
-.problema{background:var(--alabastro)}
-.problema .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:80px;align-items:start}
-.problema .etq{color:var(--indigo)}
-.problema .titulo{font-size:clamp(2.1rem,4.4vw,3.9rem)}
-.problema .titulo span{color:var(--indigo)}
-.problema .bajada{color:var(--t-osc)}
-.dolores{list-style:none;counter-reset:d;border-top:2px solid var(--negro)}
-.dolores li{counter-increment:d;display:grid;grid-template-columns:64px 1fr;gap:12px;padding:24px 0;border-bottom:1px solid var(--l-osc);font-size:1.12rem;font-weight:500;align-items:baseline}
-.dolores li::before{content:"0" counter(d);font-family:"Barlow Semi Condensed";font-weight:700;font-size:1.05rem;color:var(--indigo);letter-spacing:.06em}
-@media(max-width:900px){.problema .wrap{grid-template-columns:1fr;gap:48px}}
-
-/* ---------- servicios ---------- */
-.servicios .cab{display:grid;grid-template-columns:1.45fr .55fr;gap:60px;align-items:end;margin-bottom:64px}
-.servicios .etq{color:var(--indigo)}
-.servicios .cab p{color:var(--t-osc);font-size:1.12rem}
-.areas{border-top:2px solid var(--negro)}
-.area{display:grid;grid-template-columns:110px 1.1fr 1.3fr 70px;gap:32px;align-items:center;padding:40px 28px;border-bottom:1px solid var(--l-osc);position:relative;transition:color .3s;isolation:isolate}
-.area::before{content:"";position:absolute;inset:0;background:var(--teal);z-index:-1;clip-path:polygon(0 0,0 0,0 100%,0 100%);transition:clip-path .45s cubic-bezier(.7,0,.2,1)}
-.area:hover{color:var(--blanco)}
-.area:hover::before{clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
-.area .n{font-family:"Barlow Semi Condensed";font-weight:700;font-size:4.2rem;line-height:1;color:var(--indigo);transition:color .3s}
+/* servicios: 4 tarjetas cortas */
+.servicios{padding-top:72px}
+.servicios .etq,.stack .etq,.como .etq,.faq .etq{color:var(--indigo)}
+.areas{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.area{background:var(--alabastro);padding:30px 26px 32px;position:relative;clip-path:polygon(0 0,100% 0,100% calc(100% - 26px),calc(100% - 26px) 100%,0 100%);transition:background .3s,color .3s}
+.area:hover{background:var(--teal);color:var(--blanco)}
+.area svg{width:46px;height:46px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.area .n{position:absolute;top:24px;right:24px;font-family:"Barlow Semi Condensed";font-weight:700;color:var(--indigo);letter-spacing:.1em;font-size:.9rem}
 .area:hover .n{color:var(--alabastro)}
-.area h3{font-size:clamp(1.4rem,2.2vw,1.9rem);font-weight:800;text-transform:uppercase}
-.area .que{margin-top:8px;color:var(--t-osc);transition:color .3s}
-.area:hover .que{color:var(--t-cla)}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chips span{font-size:.88rem;font-weight:500;padding:8px 14px;background:var(--alabastro);transition:background .3s,color .3s}
-.area:hover .chips span{background:rgba(234,234,234,.1);color:var(--blanco)}
-.area svg{width:56px;height:56px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;justify-self:end}
-@media(max-width:980px){.servicios .cab{grid-template-columns:1fr;gap:16px}.area{grid-template-columns:70px 1fr;gap:18px 22px;padding:32px 8px}.area .n{font-size:3rem}.chips{grid-column:2}.area svg{display:none}}
-@media(max-width:520px){.area{grid-template-columns:1fr}.chips{grid-column:auto}}
+.area h3{font-size:1.15rem;font-weight:800;text-transform:uppercase;margin:26px 0 10px}
+.area p{font-size:.95rem;color:var(--t-osc)}
+.area:hover p{color:var(--t-cla)}
+.ademas{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;align-items:center}
+.ademas .etq{margin-right:8px}
+.ademas span:not(.etq){font-weight:600;font-size:.92rem;padding:10px 16px;background:var(--negro);color:var(--blanco)}
+@media(max-width:980px){.areas{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.areas{grid-template-columns:1fr}}
 
-.extras{display:grid;grid-template-columns:repeat(3,1fr);margin-top:56px;background:var(--negro);color:var(--blanco)}
-.extra{padding:40px 34px 44px;position:relative}
-.extra+.extra{border-left:1px solid var(--l-cla)}
-.extra .etq{color:var(--t-cla);font-size:.74rem}
-.extra h3{font-size:1.35rem;font-weight:800;text-transform:uppercase;margin:16px 0 12px}
-.extra p{color:var(--t-cla);font-size:.98rem}
-@media(max-width:900px){.extras{grid-template-columns:1fr}.extra+.extra{border-left:0;border-top:1px solid var(--l-cla)}}
+/* lo que manejamos: logos */
+.stack{background:var(--negro);color:var(--blanco)}
+.stack .etq{color:var(--alabastro)}
+.stack .cab p{color:var(--t-cla)}
+.grupo+.grupo{margin-top:46px}
+.grupo h3{font-family:"Barlow Semi Condensed";font-weight:600;font-size:.86rem;letter-spacing:.18em;text-transform:uppercase;color:var(--t-cla);padding-bottom:14px;border-bottom:1px solid var(--l-cla);margin-bottom:22px}
+.logos{display:grid;grid-template-columns:repeat(8,1fr);gap:16px}
+.logo-it{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.logo-it img{width:100%;height:auto;aspect-ratio:1;object-fit:contain;transition:transform .25s}
+.logo-it:hover img{transform:translateY(-4px)}
+.logo-it span{font-size:.82rem;color:var(--t-cla);font-weight:500}
+@media(max-width:900px){.logos{grid-template-columns:repeat(4,1fr);gap:12px}}
 
-/* ---------- atención (los números) ---------- */
-.atencion{background:var(--negro);color:var(--blanco);overflow:hidden}
-.atencion .etq{color:var(--alabastro)}
-.atencion .titulo span{color:var(--t-cla)}
-.atencion .bajada{color:var(--t-cla)}
-.versus{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:70px}
-.caso{padding:42px 40px 40px;position:relative}
-.caso.bien{background:var(--teal)}
-.caso.mal{background:#111;box-shadow:inset 0 0 0 1px var(--l-cla)}
-.caso .etq{font-size:.74rem;color:var(--t-cla)}
-.caso .grande{display:flex;align-items:baseline;gap:14px;margin:22px 0 6px}
-.caso .grande b{font-family:"Barlow Semi Condensed";font-weight:700;font-size:clamp(5rem,11vw,9.5rem);line-height:.85;letter-spacing:-.02em}
-.caso .grande span{font-family:"Barlow Semi Condensed";font-weight:600;font-size:1.6rem;color:var(--t-cla)}
-.caso p{color:var(--t-cla);max-width:380px}
-.barra{margin-top:30px;height:14px;background:rgba(234,234,234,.12);position:relative}
-.barra i{position:absolute;inset:0 auto 0 0;width:0;background:var(--alabastro);transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
-.caso.mal .barra i{background:var(--indigo)}
-.visto .barra i{width:var(--w)}
-.barra-txt{display:flex;justify-content:space-between;font-family:"Barlow Semi Condensed";font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--t-cla);margin-top:10px}
-.remate{margin-top:56px;font-family:Montserrat;font-weight:700;font-size:clamp(1.3rem,2.4vw,2rem);max-width:900px;line-height:1.25;letter-spacing:-.01em}
-.remate span{color:var(--t-cla)}
-@media(max-width:860px){.versus{grid-template-columns:1fr}.caso{padding:32px 26px}}
-
-/* ---------- cómo trabajamos ---------- */
-.como .etq{color:var(--indigo)}
-.como .bajada{color:var(--t-osc)}
-.pasos{display:grid;grid-template-columns:repeat(4,1fr);margin-top:70px;border-top:2px solid var(--negro)}
-.paso{padding:34px 30px 40px 0;position:relative}
-.paso+.paso{padding-left:30px;border-left:1px solid var(--l-osc)}
-.paso .num{font-weight:700;font-size:3.4rem;line-height:1;color:var(--indigo)}
-.paso h3{font-size:1.2rem;font-weight:800;text-transform:uppercase;margin:22px 0 10px}
-.paso p{color:var(--t-osc);font-size:.97rem}
-.paso.clave{background:var(--teal);color:var(--blanco);border-left:0;padding-left:30px}
+/* cómo trabajamos */
+.pasos{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--negro)}
+.paso{padding:28px 24px 30px 0}
+.paso+.paso{padding-left:24px;border-left:1px solid var(--l-osc)}
+.paso .num{font-family:"Barlow Semi Condensed";font-weight:700;font-size:2.8rem;line-height:1;color:var(--indigo)}
+.paso h3{font-size:1.08rem;font-weight:800;text-transform:uppercase;margin:16px 0 8px}
+.paso p{color:var(--t-osc);font-size:.94rem}
+.paso.clave{background:var(--teal);color:var(--blanco);padding-left:24px;border-left:0}
 .paso.clave .num{color:var(--alabastro)}
 .paso.clave p{color:var(--t-cla)}
-.paso.clave .sello{position:absolute;top:-2px;right:0;background:var(--alabastro);color:var(--teal);font-family:"Barlow Semi Condensed";font-weight:700;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px}
-.paso.clave + .paso{border-left:0}
-.garantias{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:56px;background:var(--alabastro)}
-.garantias div{padding:24px 26px;font-weight:600;font-size:.98rem;display:flex;gap:12px;align-items:center}
-.garantias div+div{border-left:1px solid var(--l-osc)}
-.garantias svg{width:22px;height:22px;flex:none;stroke:var(--teal);fill:none;stroke-width:2.4}
-@media(max-width:980px){.pasos{grid-template-columns:1fr 1fr}.paso:nth-child(3){padding-left:0;border-left:0}.paso:nth-child(n+3){border-top:1px solid var(--l-osc)}.paso.clave{padding-left:30px}.garantias{grid-template-columns:1fr 1fr}.garantias div:nth-child(3){border-left:0}.garantias div:nth-child(n+3){border-top:1px solid var(--l-osc)}}
-@media(max-width:560px){.pasos{grid-template-columns:1fr}.paso,.paso+.paso{padding-left:0;border-left:0;border-top:1px solid var(--l-osc)}.paso.clave{padding:34px 24px 40px}.garantias{grid-template-columns:1fr}.garantias div{border-left:0!important;border-top:1px solid var(--l-osc)}.garantias div:first-child{border-top:0}}
+.paso.clave+.paso{border-left:0}
+.atiende{margin-top:40px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;background:var(--alabastro);padding:26px 30px}
+.atiende b{font-family:"Barlow Semi Condensed";font-weight:700;font-size:2.6rem;color:var(--teal);line-height:1;white-space:nowrap}
+.atiende p{color:var(--t-osc)}
+.atiende p strong{color:var(--negro)}
+@media(max-width:900px){.pasos{grid-template-columns:1fr 1fr}.paso:nth-child(3){padding-left:0;border-left:0}.paso:nth-child(n+3){border-top:1px solid var(--l-osc)}.paso.clave{padding-left:24px}}
+@media(max-width:520px){.pasos{grid-template-columns:1fr}.paso,.paso+.paso{padding-left:0;border-left:0;border-top:1px solid var(--l-osc)}.paso.clave{padding:28px 22px}.atiende{grid-template-columns:1fr;gap:10px}}
 
-/* ---------- equipo ---------- */
+/* equipo */
 .equipo{background:var(--alabastro)}
 .equipo .etq{color:var(--indigo)}
-.equipo .bajada{color:var(--t-osc)}
-.socios{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
-.socio{background:var(--blanco);display:flex;flex-direction:column}
-.socio .foto{aspect-ratio:4/4.3;position:relative;overflow:hidden;clip-path:polygon(0 0,100% 0,100% calc(100% - 40px),calc(100% - 40px) 100%,0 100%)}
-.socio .foto img{width:100%;height:100%;object-fit:cover}
+.equipo .cab p{color:var(--t-osc)}
+.socios{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.socio{background:var(--blanco);display:grid;grid-template-columns:110px 1fr;align-items:stretch}
+.socio .foto{position:relative;overflow:hidden;min-height:130px}
 .socio:nth-child(1) .foto{background:var(--teal)}
 .socio:nth-child(2) .foto{background:var(--indigo)}
 .socio:nth-child(3) .foto{background:var(--negro)}
-.socio .foto .iso{position:absolute;width:115%;right:-38%;bottom:-24%;background:var(--alabastro);opacity:.09}
-.socio .foto .ini{position:absolute;left:28px;bottom:26px;font-family:Montserrat;font-weight:900;font-size:5.2rem;line-height:1;color:var(--alabastro);letter-spacing:-.04em}
-.socio .txt{padding:28px 28px 34px}
-.socio h3{font-size:1.5rem;font-weight:800;text-transform:uppercase}
-.socio .rol{display:block;font-family:"Barlow Semi Condensed";font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.82rem;color:var(--indigo);margin:8px 0 14px}
-.socio p{color:var(--t-osc);font-size:.97rem}
-@media(max-width:900px){.socios{grid-template-columns:1fr;max-width:520px}.socio .foto{aspect-ratio:16/10}}
+.socio .foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.socio .foto .ini{position:absolute;left:16px;bottom:12px;font-family:Montserrat;font-weight:900;font-size:2.4rem;line-height:1;color:var(--alabastro);letter-spacing:-.04em}
+.socio .txt{padding:22px 22px 24px}
+.socio h3{font-size:1.1rem;font-weight:800;text-transform:uppercase}
+.socio .rol{display:block;font-family:"Barlow Semi Condensed";font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:var(--indigo);margin:6px 0 8px}
+.socio p{color:var(--t-osc);font-size:.92rem}
+@media(max-width:980px){.socios{grid-template-columns:1fr;max-width:560px}}
 
-/* ---------- preguntas ---------- */
-.faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}
-.faq .etq{color:var(--indigo)}
-.faq .titulo{font-size:clamp(2rem,4vw,3.2rem)}
+/* preguntas */
+.faq .wrap{display:grid;grid-template-columns:.75fr 1.25fr;gap:70px}
+.faq .lado p{color:var(--t-osc);margin-top:18px}
+.faq .lado .btn{margin-top:26px}
 .faq-lista{border-top:2px solid var(--negro)}
 details{border-bottom:1px solid var(--l-osc)}
-summary{font-family:Montserrat;font-weight:700;font-size:1.12rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:26px 0}
+summary{font-family:Montserrat;font-weight:700;font-size:1.04rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:22px;padding:21px 0}
 summary::-webkit-details-marker{display:none}
-summary i{flex:none;width:34px;height:34px;background:var(--alabastro);position:relative;transition:background .2s}
-summary i::before,summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;background:var(--teal);transform:translate(-50%,-50%);transition:transform .25s}
+summary i{flex:none;width:30px;height:30px;background:var(--alabastro);position:relative;transition:background .2s}
+summary i::before,summary i::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:2px;background:var(--teal);transform:translate(-50%,-50%);transition:transform .25s}
 summary i::after{transform:translate(-50%,-50%) rotate(90deg)}
 details[open] summary i{background:var(--teal)}
 details[open] summary i::before{background:var(--blanco)}
 details[open] summary i::after{transform:translate(-50%,-50%) rotate(0);background:var(--blanco)}
-details p{color:var(--t-osc);padding:0 60px 26px 0;font-size:1.02rem}
-@media(max-width:900px){.faq .wrap{grid-template-columns:1fr;gap:36px}details p{padding-right:0}}
+details .resp{color:var(--t-osc);padding:0 50px 22px 0;font-size:.98rem}
+details .resp p+p,details .resp ul{margin-top:10px}
+details .resp ul{padding-left:18px}
+details .resp li+li{margin-top:4px}
+@media(max-width:900px){.faq .wrap{grid-template-columns:1fr;gap:30px}details .resp{padding-right:0}}
 
-/* ---------- cierre ---------- */
-.cierre{background:var(--teal);color:var(--blanco);overflow:hidden;padding:150px 0}
-.cierre .gigante{position:absolute;right:-8%;top:50%;transform:translateY(-50%);width:min(760px,70vw);background:var(--indigo)}
+/* cierre */
+.cierre{background:var(--teal);color:var(--blanco);overflow:hidden;padding:120px 0}
+.cierre .gigante{position:absolute;right:-8%;top:50%;transform:translateY(-50%);width:min(640px,64vw);background:var(--indigo)}
 .cierre .wrap{position:relative;z-index:1}
 .cierre .etq{color:var(--alabastro)}
-.cierre h2{font-size:clamp(2.6rem,6.4vw,6rem);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.035em;margin:26px 0 30px;max-width:900px}
-.cierre p{color:var(--t-cla);font-size:1.2rem;max-width:560px;margin-bottom:42px}
+.cierre h2{font-size:clamp(2.4rem,5.6vw,5rem);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.035em;margin:22px 0 24px;max-width:820px}
+.cierre p{color:var(--t-cla);font-size:1.12rem;max-width:520px;margin-bottom:34px}
 .cierre .palabra{font-family:"Barlow Semi Condensed";font-weight:700;letter-spacing:.12em;background:var(--alabastro);color:var(--teal);padding:2px 10px}
 
-footer{background:var(--negro);color:var(--t-cla);padding:70px 0 40px;font-size:.92rem}
-.pie{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:50px;border-bottom:1px solid var(--l-cla)}
-.pie img{height:40px;width:auto;margin-bottom:20px}
-.pie h4{font-family:"Barlow Semi Condensed";font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:.78rem;color:var(--alabastro);margin-bottom:16px}
-.pie ul{list-style:none;display:grid;gap:9px}
+footer{background:var(--negro);color:var(--t-cla);padding:56px 0 34px;font-size:.9rem}
+.pie{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;padding-bottom:36px;border-bottom:1px solid var(--l-cla)}
+.pie img{height:36px;width:auto;margin-bottom:14px}
+.pie ul{list-style:none;display:flex;gap:22px;flex-wrap:wrap}
 .pie a{text-decoration:none;transition:color .2s}
 .pie a:hover{color:var(--blanco)}
-.legal{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:28px;font-size:.84rem;opacity:.7}
-@media(max-width:760px){.pie{grid-template-columns:1fr 1fr}.pie>div:first-child{grid-column:1/-1}}
+.legal{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:24px;font-size:.82rem;opacity:.7}
 
-/* botón flotante de WhatsApp, con la marca */
-.wa{position:fixed;right:22px;bottom:22px;z-index:50;display:flex;align-items:center;gap:10px;background:var(--negro);color:var(--blanco);text-decoration:none;font-family:Montserrat;font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;padding:14px 18px;box-shadow:0 14px 30px -8px rgba(0,0,0,.5);clip-path:polygon(0 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%);transition:background .2s}
+.wa{position:fixed;right:20px;bottom:20px;z-index:50;display:flex;align-items:center;gap:10px;background:var(--negro);color:var(--blanco);text-decoration:none;font-family:Montserrat;font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;padding:14px 18px;box-shadow:0 14px 30px -8px rgba(0,0,0,.5);clip-path:polygon(0 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%);transition:background .2s}
 .wa:hover{background:var(--indigo)}
 .wa svg{width:22px;height:22px;fill:currentColor}
 @media(max-width:600px){.wa span{display:none}.wa{padding:14px}}
 
-/* animaciones */
-.aparece{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.aparece{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
 .aparece.visto{opacity:1;transform:none}
-.hero .entra{opacity:0;transform:translateY(30px);animation:entra .9s cubic-bezier(.2,.7,.2,1) forwards}
-.hero .entra:nth-child(2){animation-delay:.08s}.hero .entra:nth-child(3){animation-delay:.16s}.hero .entra:nth-child(4){animation-delay:.24s}
-.maqueta.entra{animation-delay:.3s}
+.hero .entra{opacity:0;transform:translateY(26px);animation:entra .9s cubic-bezier(.2,.7,.2,1) forwards}
+.hero .entra:nth-child(2){animation-delay:.1s}.video.entra{animation-delay:.25s}
 .cortes i{animation:corte 1.2s cubic-bezier(.7,0,.2,1) both}
 .cortes i:nth-child(2){animation-delay:.08s}.cortes i:nth-child(3){animation-delay:.16s}
 @keyframes entra{to{opacity:1;transform:none}}
 @keyframes corte{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.aparece,.hero .entra{opacity:1;transform:none}.barra i{width:var(--w)}html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.aparece,.hero .entra{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 
 <header id="header">
   <div class="wrap">
-    <a href="#inicio" class="logo" aria-label="Octano Empresas">
-      <img class="lb" src="img/logo-blanco.png" alt="Octano Empresas">
-      <img class="ln" src="img/logo-negro.png" alt="">
+    <a href="#inicio" class="logo" aria-label="Octano Empresas, ir al inicio">
+      <img class="lb" src="img/logo-blanco.png" alt="Octano Empresas" width="1745" height="513">
+      <img class="ln" src="img/logo-negro.png" alt="" width="1745" height="513">
     </a>
-    <nav>
-      <a href="#servicios">Qué hacemos</a>
-      <a href="#como">Cómo trabajamos</a>
-      <a href="#equipo">Quiénes somos</a>
+    <nav aria-label="Principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#herramientas">Herramientas</a>
+      <a href="#equipo">Equipo</a>
       <a href="#preguntas">Preguntas</a>
       <a class="btn btn-alab js-wa" href="#contacto">Hablemos</a>
     </nav>
   </div>
 </header>
 
+<main>
 <section class="hero" id="inicio">
   <div class="cortes" aria-hidden="true"><i></i><i></i><i></i></div>
-  <div class="wrap hero-grid">
-    <div>
-      <span class="etq entra">Para empresas y fábricas</span>
-      <h1 class="entra"><span class="linea">Ordenamos</span><span class="linea">tu empresa.</span><span class="linea"><span class="marca">Impulsamos</span></span><span class="linea">tus ventas.</span></h1>
-      <p class="lead entra">Sistemas de gestión y apps a medida, web, WhatsApp que contesta solo, redes y clientes nuevos. <b>Todo conectado y con un solo equipo responsable.</b></p>
-      <div class="ctas entra">
-        <a class="btn btn-alab js-wa" href="#contacto">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
-          Escribinos por WhatsApp
-        </a>
-        <a class="btn btn-linea" href="#servicios">Qué hacemos <span class="flecha">→</span></a>
-      </div>
-    </div>
-
-    <div class="maqueta entra" aria-hidden="true">
-      <div class="panel">
-        <div class="panel-top"><i class="iso"></i><span>Tu sistema · Hoy</span><em>Lunes 9:41</em></div>
-        <div class="kpis">
-          <div class="kpi"><small>Pedidos</small><b>38</b></div>
-          <div class="kpi"><small>A cobrar</small><b>$2,4M</b></div>
-          <div class="kpi"><small>Stock bajo</small><b>3</b></div>
+  <div class="wrap">
+    <div class="hero-txt">
+      <h1 class="entra">
+        <span class="sub">Sistemas a medida, web y marketing para empresas y fábricas</span>
+        <span class="grande">Ordenamos tu empresa. <span class="marca">Impulsamos</span> tus ventas.</span>
+      </h1>
+      <div class="entra">
+        <p class="lead">Sistemas de gestión, apps, webs, WhatsApp automático, redes y anuncios. <b>Todo conectado y con un solo equipo.</b></p>
+        <div class="ctas">
+          <a class="btn btn-alab js-wa" href="#contacto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>Escribinos</a>
+          <a class="btn btn-linea" href="#servicios">Servicios</a>
         </div>
-        <div class="grafico">
-          <i style="--h:38%"></i><i style="--h:52%"></i><i style="--h:44%"></i><i style="--h:61%"></i><i style="--h:57%"></i><i class="sem" style="--h:72%"></i><i class="sem" style="--h:66%"></i><i class="sem" style="--h:81%"></i><i class="hoy" style="--h:94%"></i>
-        </div>
-        <ul class="pedidos">
-          <li>#1042 · Metalúrgica del Oeste <span class="est ok">Entregado</span></li>
-          <li>#1043 · Distribuidora Norte <span class="est pr">En planta</span></li>
-          <li>#1044 · Consulta por WhatsApp <span class="est nv">Nuevo</span></li>
-        </ul>
-      </div>
-      <div class="chat">
-        <div class="chat-top"><i class="pto"></i><b>WhatsApp de tu empresa</b><em>ahora</em></div>
-        <div class="msj el">Hola, necesito precio por 200 unidades<small>Cliente nuevo</small></div>
-        <div class="msj yo">Hola! Te paso la lista y te tomo el pedido acá mismo<small>Respuesta automática</small></div>
       </div>
     </div>
   </div>
-
-  <div class="datos">
+  <div class="hero-pie">
     <div class="wrap">
-      <div class="dato"><b>48 h</b><span>para ver una demo funcionando, con tu marca</span></div>
-      <div class="dato"><b>4</b><span>áreas conectadas: operación, pedidos, redes y clientes</span></div>
-      <div class="dato"><b>1</b><span>solo equipo responsable de todo</span></div>
-      <div class="dato"><b>$0</b><span>hasta que veas la demo y aceptes la propuesta</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="problema">
-  <div class="wrap">
-    <div class="aparece">
-      <span class="etq">Te suena?</span>
-      <h2 class="titulo">Tu empresa vende y produce. <span>Pero todo depende de vos.</span></h2>
-      <p class="bajada">La mayoría de las empresas con las que hablamos no necesitan más trabajo: necesitan que lo que ya hacen esté ordenado y que los clientes que llegan no se pierdan en el camino.</p>
-    </div>
-    <ul class="dolores aparece">
-      <li>Los pedidos, el stock y los cobros están en un Excel, en un cuaderno o en la cabeza de alguien.</li>
-      <li>Llegan consultas por WhatsApp y nadie las contesta a tiempo.</li>
-      <li>Tenés Instagram, pero no publicás o no te trae nada.</li>
-      <li>Ya le pagaste a un proveedor que te dejó a mitad de camino.</li>
-      <li>Querés vender más, pero no tenés un sistema para seguir a cada cliente.</li>
-    </ul>
-  </div>
-</section>
-
-<section class="servicios" id="servicios">
-  <div class="wrap">
-    <div class="cab aparece">
-      <div>
-        <span class="etq">Qué hacemos</span>
-        <h2 class="titulo">Cuatro áreas, como las piensa el dueño</h2>
+      <div class="video entra">
+        <!-- Video de presentación. Cuando esté el video con nosotros, se reemplaza img/presentacion.mp4 (mismo nombre). -->
+        <video src="img/presentacion.mp4" poster="img/presentacion.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Video de presentación de Octano Empresas"></video>
+        <span class="sello">Demo en 48 h</span>
       </div>
-      <p>Arrancamos por lo que más te urge y después vamos sumando. Cada cosa que hacemos se conecta con la anterior.</p>
+    </div>
+  </div>
+</section>
+
+<section class="servicios" id="servicios" aria-labelledby="t-servicios">
+  <div class="wrap">
+    <div class="datos aparece" style="margin-bottom:72px">
+      <div class="dato"><b>48 h</b><span>para ver tu demo funcionando</span></div>
+      <div class="dato"><b>$0</b><span>hasta que la veas y aceptes</span></div>
+      <div class="dato"><b>4</b><span>áreas conectadas entre sí</span></div>
+      <div class="dato"><b>1</b><span>solo equipo responsable</span></div>
+    </div>
+    <div class="cab aparece">
+      <div><span class="etq">Servicios</span><h2 class="titulo" id="t-servicios">Qué hacemos</h2></div>
+      <p>Arrancamos por lo que más te urge y vamos sumando. Cada cosa se conecta con la anterior.</p>
     </div>
     <div class="areas">
       <article class="area aparece">
         <span class="n">01</span>
-        <div><h3>Ordenar la operación</h3><p class="que">Sistemas de gestión y apps a medida de tu empresa.</p></div>
-        <div class="chips"><span>Clientes, pedidos y stock</span><span>Cobros y vencimientos</span><span>Producción y procesos</span><span>Desde la compu o el celular</span></div>
-        <svg viewBox="0 0 48 48"><path d="M24 6 4 16l20 10 20-10L24 6Z"/><path d="m4 24 20 10 20-10"/><path d="m4 32 20 10 20-10"/></svg>
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6 4 16l20 10 20-10L24 6Z"/><path d="m4 24 20 10 20-10"/><path d="m4 32 20 10 20-10"/></svg>
+        <h3>Sistemas y apps a medida</h3>
+        <p>Clientes, pedidos, stock, cobros y producción, desde la compu o el celular.</p>
       </article>
       <article class="area aparece">
         <span class="n">02</span>
-        <div><h3>Atender y recibir pedidos</h3><p class="que">Que te encuentren y que pedirte sea fácil.</p></div>
-        <div class="chips"><span>Web con catálogo y pedidos</span><span>WhatsApp que contesta solo</span><span>Lista de precios siempre al día</span></div>
-        <svg viewBox="0 0 48 48"><path d="M4 8h6l5 24h24l5-16H13"/><circle cx="18" cy="40" r="3"/><circle cx="36" cy="40" r="3"/></svg>
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 8h6l5 24h24l5-16H13"/><circle cx="18" cy="40" r="3"/><circle cx="36" cy="40" r="3"/></svg>
+        <h3>Web y WhatsApp automático</h3>
+        <p>Web con catálogo y pedidos, y un WhatsApp que contesta solo.</p>
       </article>
       <article class="area aparece">
         <span class="n">03</span>
-        <div><h3>Mostrar lo que hacés</h3><p class="que">Redes con contenido real de tu empresa.</p></div>
-        <div class="chips"><span>Grabamos en tu planta</span><span>Edición y publicación</span><span>Instagram, Facebook, TikTok y LinkedIn</span></div>
-        <svg viewBox="0 0 48 48"><rect x="8" y="10" width="32" height="22" rx="2"/><path d="M3 38h42l-3-6H6l-3 6Z"/></svg>
+        <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="10" width="32" height="22" rx="2"/><path d="M3 38h42l-3-6H6l-3 6Z"/></svg>
+        <h3>Redes con grabación</h3>
+        <p>Grabamos en tu planta, editamos y publicamos por vos.</p>
       </article>
       <article class="area aparece">
         <span class="n">04</span>
-        <div><h3>Conseguir oportunidades</h3><p class="que">Clientes nuevos, medidos de punta a punta.</p></div>
-        <div class="chips"><span>Anuncios en Google, Instagram y Facebook</span><span>Búsqueda de empresas</span><span>Cuántos escribieron y cuántos compraron</span></div>
-        <svg viewBox="0 0 48 48"><path d="M8 40V30M18 40V24M28 40V18M38 40V10"/><path d="m6 22 12-10 8 6 16-12"/><path d="M36 6h6v6"/></svg>
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 40V30M18 40V24M28 40V18M38 40V10"/><path d="m6 22 12-10 8 6 16-12"/><path d="M36 6h6v6"/></svg>
+        <h3>Anuncios y clientes</h3>
+        <p>Google, Instagram y Facebook, medidos de la consulta a la venta.</p>
       </article>
     </div>
-    <div class="extras aparece">
-      <div class="extra"><span class="etq">Además</span><h3>Atendemos tus consultas</h3><p>Un equipo nuestro contesta y sigue a cada interesado por vos. Te pasamos los que están listos para comprar.</p></div>
-      <div class="extra"><span class="etq">Además</span><h3>Capacitamos a tus vendedores</h3><p>Encuentros semanales con tu equipo de ventas para usar el sistema y cerrar más.</p></div>
-      <div class="extra"><span class="etq">Además</span><h3>Mejoramos tus procesos</h3><p>Miramos cómo se trabaja en tu planta y te proponemos qué ordenar primero, de empresario a empresario.</p></div>
+    <div class="ademas aparece">
+      <span class="etq">Además</span>
+      <span>Atención de consultas</span><span>Capacitación a vendedores</span><span>Mejora de procesos</span><span>Asesoramiento</span>
     </div>
   </div>
 </section>
 
-<section class="atencion">
+<section class="stack" id="herramientas" aria-labelledby="t-stack">
   <div class="wrap">
-    <div class="aparece">
-      <span class="etq">Por qué importa atender</span>
-      <h2 class="titulo">Mismos anuncios. <span>Resultados muy distintos.</span></h2>
+    <div class="cab aparece">
+      <div><span class="etq">Herramientas</span><h2 class="titulo" id="t-stack">Lo que manejamos</h2></div>
+      <p>Las plataformas y los lenguajes con los que trabajamos todos los días.</p>
     </div>
-    <div class="versus">
-      <div class="caso bien aparece">
-        <span class="etq">Contestaba al toque</span>
-        <div class="grande"><b>40</b><span>clientes</span></div>
-        <p>Un estudio que atendía cada consulta enseguida y hacía seguimiento: de 140 consultas, 40 clientes.</p>
-        <div class="barra" style="--w:28.6%"><i></i></div>
-        <div class="barra-txt"><span>40 de 140 consultas</span><span>29 %</span></div>
-      </div>
-      <div class="caso mal aparece">
-        <span class="etq">No llegaba a atender</span>
-        <div class="grande"><b>1</b><span>cliente</span></div>
-        <p>Un consultorio con la misma publicidad, pero sin nadie que contestara: de 40 consultas, 1 cliente.</p>
-        <div class="barra" style="--w:2.5%"><i></i></div>
-        <div class="barra-txt"><span>1 de 40 consultas</span><span>2,5 %</span></div>
-      </div>
+    <div class="grupo aparece">
+      <h3>Redes y anuncios</h3>
+      <div class="logos" id="logos-redes"></div>
     </div>
-    <p class="remate aparece">Por eso no solo te traemos consultas: también nos aseguramos de que alguien las atienda. <span>A vos te queda vender.</span></p>
+    <div class="grupo aparece">
+      <h3>Sistemas, apps y webs</h3>
+      <div class="logos" id="logos-codigo"></div>
+    </div>
   </div>
 </section>
 
-<section class="como" id="como">
+<section class="como" id="como" aria-labelledby="t-como">
   <div class="wrap">
-    <div class="aparece">
-      <span class="etq">Cómo trabajamos</span>
-      <h2 class="titulo">Primero lo ves funcionando. Después decidís.</h2>
-      <p class="bajada">Sabemos que muchas empresas tuvieron malas experiencias con proveedores. Por eso trabajamos así:</p>
+    <div class="cab aparece">
+      <div><span class="etq">Cómo trabajamos</span><h2 class="titulo" id="t-como">Primero lo ves. Después decidís.</h2></div>
     </div>
     <div class="pasos aparece">
-      <div class="paso"><span class="num">01</span><h3>Charla de 30 minutos</h3><p>Nos contás qué hace tu empresa y qué querés resolver primero. En tu planta o por videollamada.</p></div>
-      <div class="paso clave"><span class="sello">Antes de cobrar</span><span class="num">02</span><h3>Demo en 48 horas</h3><p>Te mostramos una primera versión funcionando, con tu marca y tus datos de ejemplo.</p></div>
-      <div class="paso"><span class="num">03</span><h3>Propuesta por etapas</h3><p>Por escrito: qué incluye cada etapa, cuánto sale y cuándo se entrega. A medida de tu empresa.</p></div>
-      <div class="paso"><span class="num">04</span><h3>Seguimiento semanal</h3><p>Un solo responsable, una reunión por semana y cada etapa se paga cuando está entregada.</p></div>
+      <div class="paso"><span class="num">01</span><h3>Charla de 30 min</h3><p>Nos contás qué querés resolver primero.</p></div>
+      <div class="paso clave"><span class="num">02</span><h3>Demo en 48 h</h3><p>Funcionando y con tu marca, antes de cobrar.</p></div>
+      <div class="paso"><span class="num">03</span><h3>Propuesta por etapas</h3><p>Por escrito: qué incluye, cuánto sale y cuándo.</p></div>
+      <div class="paso"><span class="num">04</span><h3>Seguimiento semanal</h3><p>Cada etapa se paga cuando está entregada.</p></div>
     </div>
-    <div class="garantias aparece">
-      <div><svg viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></svg>Precio cerrado por etapa</div>
-      <div><svg viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></svg>Sin letra chica</div>
-      <div><svg viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></svg>Implementación, mensual y publicidad, por separado</div>
-      <div><svg viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></svg>El sistema es tuyo</div>
+    <div class="atiende aparece">
+      <b>40 de 140</b>
+      <p>Un estudio que contestaba al toque cerró <strong>40 clientes de 140 consultas</strong>. Un consultorio con la misma publicidad y sin nadie que atendiera: <strong>1 de 40</strong>. Por eso no solo te traemos consultas: también nos aseguramos de que alguien las atienda.</p>
     </div>
   </div>
 </section>
 
-<section class="equipo" id="equipo">
+<section class="equipo" id="equipo" aria-labelledby="t-equipo">
   <div class="wrap">
-    <div class="aparece">
-      <span class="etq">Quiénes somos</span>
-      <h2 class="titulo">Un empresario y un equipo de producción digital</h2>
-      <p class="bajada">Te habla alguien que conoce una fábrica por dentro, y lo hace un equipo que arma sistemas, webs y campañas todos los días.</p>
+    <div class="cab aparece">
+      <div><span class="etq">Equipo</span><h2 class="titulo" id="t-equipo">Quiénes somos</h2></div>
+      <p>Un empresario que conoce una fábrica por dentro y dos socios que hacen los sistemas, las webs y el contenido.</p>
     </div>
     <div class="socios">
       <article class="socio aparece">
-        <div class="foto"><i class="iso"></i><span class="ini">FM</span><!-- <img src="img/fer.jpg" alt="Fer Masso"> --></div>
-        <div class="txt"><h3>Fer Masso</h3><span class="rol">Empresas y asesoramiento</span><p>Años de experiencia llevando fábricas y proyectos. Es quien escucha a cada empresa, entiende cómo trabaja y arma la solución con vos.</p></div>
+        <div class="foto"><span class="ini">FM</span><!-- <img src="img/fernando.jpg" alt="Fernando Masso"> --></div>
+        <div class="txt"><h3>Fernando Masso</h3><span class="rol">Empresas y asesoramiento</span><p>Años llevando fábricas y proyectos. Escucha a cada empresa y arma la solución con vos.</p></div>
       </article>
       <article class="socio aparece">
-        <div class="foto"><i class="iso"></i><span class="ini">M</span><!-- <img src="img/mateo.jpg" alt="Mateo"> --></div>
-        <div class="txt"><h3>Mateo</h3><span class="rol">Sistemas, apps y webs</span><p>Convierte planillas y papeles en sistemas simples, que se usan desde la compu o el celular.</p></div>
+        <div class="foto"><span class="ini">MD</span><!-- <img src="img/mateo.jpg" alt="Mateo De Rosa"> --></div>
+        <div class="txt"><h3>Mateo De Rosa</h3><span class="rol">Sistemas, webs y contenido</span><p>Hace sistemas, apps y webs, y también contenido, anuncios y WhatsApp.</p></div>
       </article>
       <article class="socio aparece">
-        <div class="foto"><i class="iso"></i><span class="ini">SS</span><!-- <img src="img/stalla.jpg" alt="Santi Stalla"> --></div>
-        <div class="txt"><h3>Santi Stalla</h3><span class="rol">Contenido, anuncios y WhatsApp</span><p>Hace que te encuentren y que ninguna consulta quede sin contestar. Graba, edita, pauta y mide.</p></div>
+        <div class="foto"><span class="ini">SS</span><!-- <img src="img/santiago.jpg" alt="Santiago Stalla"> --></div>
+        <div class="txt"><h3>Santiago Stalla</h3><span class="rol">Sistemas, webs y contenido</span><p>Hace sistemas, apps y webs, y también contenido, anuncios y WhatsApp.</p></div>
       </article>
     </div>
   </div>
 </section>
 
-<section class="faq" id="preguntas">
+<section class="faq" id="preguntas" aria-labelledby="t-faq">
   <div class="wrap">
-    <div class="aparece">
+    <div class="lado aparece">
       <span class="etq">Preguntas</span>
-      <h2 class="titulo">Lo que nos preguntan siempre</h2>
+      <h2 class="titulo" id="t-faq">Preguntas frecuentes</h2>
+      <p>Si tu duda no está acá, escribinos y te contestamos el mismo día.</p>
+      <a class="btn btn-teal js-wa" href="#contacto">Preguntanos</a>
     </div>
     <div class="faq-lista aparece">
-      <details><summary>Cuánto sale?<i></i></summary><p>Depende de qué necesita tu empresa: cada propuesta es a medida y por etapas. En la primera charla te damos un rango, y con la demo, el precio cerrado de cada etapa.</p></details>
-      <details><summary>Hay que pagar algo antes de ver la demo?<i></i></summary><p>No. La demo la hacemos en 48 horas y sin cargo. Si te sirve, avanzamos con la propuesta.</p></details>
-      <details><summary>Ya tengo un programa (o un Excel). Lo tengo que tirar?<i></i></summary><p>No necesariamente. Muchas veces conectamos lo que ya usás o pasamos tus datos al sistema nuevo para que no arranques de cero.</p></details>
-      <details><summary>Cuánto tarda un sistema?<i></i></summary><p>Una primera versión para usar en el día a día sale en 4 a 6 semanas. Un WhatsApp automático, en 1 a 3 semanas.</p></details>
-      <details><summary>Trabajan solo en Buenos Aires?<i></i></summary><p>Estamos en zona oeste del Gran Buenos Aires y trabajamos con empresas de todo el país: lo que no se hace en persona, se hace por videollamada.</p></details>
-      <details><summary>Y si después necesito cambios?<i></i></summary><p>Tenemos mantenimiento mensual para sumar cosas y que todo siga andando. El sistema es tuyo.</p></details>
+      <details><summary>Cuánto sale un sistema o una web para mi empresa?<i></i></summary><div class="resp">
+        <p>Cada propuesta es a medida, pero nunca vas a pagar a ciegas:</p>
+        <ul>
+          <li><b>Antes de cobrar</b> te mostramos una demo funcionando en 48 horas.</li>
+          <li>El precio es <b>cerrado por etapa</b> y cada etapa se paga cuando está entregada.</li>
+          <li>Separamos lo que es <b>implementación</b> (una vez), lo <b>mensual</b> (mantenimiento, redes, anuncios), las <b>licencias</b> de terceros y lo que se invierte en <b>publicidad</b>.</li>
+        </ul>
+        <p>En la primera charla te damos un rango, y con la demo, el número exacto.</p>
+      </div></details>
+      <details><summary>Hay que pagar algo antes de ver la demo?<i></i></summary><div class="resp"><p>No. La demo la hacemos en 48 horas y sin cargo. Si te sirve, avanzamos con la propuesta; si no, no pasa nada.</p></div></details>
+      <details><summary>Qué es un sistema de gestión a medida?<i></i></summary><div class="resp"><p>Es un programa hecho para cómo trabaja tu empresa, no al revés: clientes, pedidos, stock, producción, cobros y vencimientos en un solo lugar, desde la compu o el celular. A diferencia de un enlatado, se adapta a tus procesos y crece con vos.</p></div></details>
+      <details><summary>Ya uso un programa o un Excel. Lo tengo que tirar?<i></i></summary><div class="resp"><p>No necesariamente. Muchas veces conectamos lo que ya usás o pasamos tus datos al sistema nuevo para que no arranques de cero.</p></div></details>
+      <details><summary>Cuánto tarda?<i></i></summary><div class="resp"><p>Un WhatsApp automático o una web, de 1 a 3 semanas. Una primera versión de un sistema para usar en el día a día, de 4 a 6 semanas. Después seguimos sumando por etapas.</p></div></details>
+      <details><summary>Cómo funciona el WhatsApp automático?<i></i></summary><div class="resp"><p>Contesta las consultas al instante, pasa precios y catálogo, toma pedidos o turnos y le deriva a tu equipo los que están listos para comprar. Todo queda guardado para hacer seguimiento.</p></div></details>
+      <details><summary>Hacen redes y anuncios para fábricas?<i></i></summary><div class="resp"><p>Sí. Vamos a tu planta, grabamos el proceso y a la gente que lo hace, y lo publicamos en Instagram, Facebook, TikTok y LinkedIn. Con anuncios en Google y Meta llevamos las consultas a tu WhatsApp y medimos cuántas terminan en venta.</p></div></details>
+      <details><summary>Y si no doy abasto para contestar las consultas?<i></i></summary><div class="resp"><p>Tenemos un equipo que atiende y hace seguimiento a cada interesado por vos. Además capacitamos a tus vendedores cada semana para que cierren más.</p></div></details>
+      <details><summary>El sistema es mío?<i></i></summary><div class="resp"><p>Sí. Lo que hacemos para tu empresa es tuyo. Con el mantenimiento mensual seguimos sumando cosas y nos aseguramos de que todo siga andando.</p></div></details>
+      <details><summary>Dónde trabajan?<i></i></summary><div class="resp"><p>Estamos en zona oeste del Gran Buenos Aires y trabajamos con empresas de todo el país. Lo que no se hace en persona, se hace por videollamada.</p></div></details>
     </div>
   </div>
 </section>
 
-<section class="cierre" id="contacto">
+<section class="cierre" id="contacto" aria-labelledby="t-cierre">
   <i class="iso gigante" aria-hidden="true"></i>
   <div class="wrap aparece">
     <span class="etq">Hablemos</span>
-    <h2>Contanos qué querés resolver primero</h2>
+    <h2 id="t-cierre">Contanos qué querés resolver primero</h2>
     <p>Escribinos <span class="palabra">FÁBRICA</span> al WhatsApp y coordinamos una charla de 30 minutos. Sin compromiso.</p>
-    <a class="btn btn-alab js-wa" href="#contacto">Escribinos por WhatsApp <span class="flecha">→</span></a>
+    <a class="btn btn-alab js-wa" href="#contacto">Escribinos por WhatsApp</a>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="wrap">
     <div class="pie">
       <div>
-        <img src="img/logo-blanco.png" alt="Octano Empresas">
+        <img src="img/logo-blanco.png" alt="Octano Empresas" width="1745" height="513" loading="lazy">
         <p>Ordenamos tu empresa. Impulsamos tus ventas.</p>
       </div>
-      <div>
-        <h4>La web</h4>
-        <ul><li><a href="#servicios">Qué hacemos</a></li><li><a href="#como">Cómo trabajamos</a></li><li><a href="#equipo">Quiénes somos</a></li><li><a href="#preguntas">Preguntas</a></li></ul>
-      </div>
-      <div>
-        <h4>Redes</h4>
-        <ul><li><a href="#">Instagram</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">TikTok</a></li><li><a href="#">Facebook</a></li></ul>
-      </div>
+      <ul>
+        <li><a href="#">Instagram</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">TikTok</a></li><li><a href="#">Facebook</a></li>
+      </ul>
     </div>
     <div class="legal"><span>© 2026 Octano Empresas</span><span>Zona oeste, Gran Buenos Aires</span></div>
   </div>
 </footer>
 
 <a class="wa js-wa" href="#contacto" aria-label="Escribinos por WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
   <span>Escribinos</span>
 </a>
 
@@ -554,19 +490,21 @@ footer{background:var(--negro);color:var(--t-cla);padding:70px 0 40px;font-size:
 // Número de WhatsApp de la agencia (chip nuevo). Formato: 5491100000000. Mientras esté vacío, los botones bajan al cierre.
 const WHATSAPP = "";
 const MENSAJE = "Hola! Les escribo desde la web. FÁBRICA";
-if (WHATSAPP) {
-  document.querySelectorAll(".js-wa").forEach(a => {
-    a.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(MENSAJE);
-    a.target = "_blank"; a.rel = "noopener";
-  });
-}
-// header: transparente sobre el hero, blanco al bajar
-const header = document.getElementById("header");
-const hero = document.getElementById("inicio");
-const pintar = () => header.classList.toggle("solido", window.scrollY > hero.offsetHeight - 90);
+// Logos (versión Octano, hechos con ChatGPT): archivo en img/logos/<id>.png
+const REDES = [["instagram","Instagram"],["facebook","Facebook"],["tiktok","TikTok"],["linkedin","LinkedIn"],["whatsapp","WhatsApp"],["youtube","YouTube"],["google-ads","Google Ads"],["meta","Meta Ads"]];
+const CODIGO = [["html","HTML"],["css","CSS"],["javascript","JavaScript"],["typescript","TypeScript"],["react","React"],["nodejs","Node.js"],["python","Python"],["flutter","Flutter"],["supabase","Supabase"],["postgresql","PostgreSQL"],["github","GitHub"],["vercel","Vercel"]];
+const pintarLogos = (id, lista) => document.getElementById(id).innerHTML = lista.map(([f, n]) =>
+  `<div class="logo-it"><img src="img/logos/${f}.png" alt="${n}" width="240" height="240" loading="lazy"><span>${n}</span></div>`).join("");
+pintarLogos("logos-redes", REDES); pintarLogos("logos-codigo", CODIGO);
+
+if (WHATSAPP) document.querySelectorAll(".js-wa").forEach(a => {
+  a.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(MENSAJE);
+  a.target = "_blank"; a.rel = "noopener";
+});
+const header = document.getElementById("header"), hero = document.querySelector(".hero-txt");
+const pintar = () => header.classList.toggle("solido", window.scrollY > hero.offsetTop + hero.offsetHeight);
 addEventListener("scroll", pintar, { passive: true }); pintar();
-// aparecen al bajar
-const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visto"); io.unobserve(e.target); } }), { threshold: .15 });
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visto"); io.unobserve(e.target); } }), { threshold: .12 });
 document.querySelectorAll(".aparece").forEach(el => io.observe(el));
 </script>
 </body>
