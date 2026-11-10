@@ -53,7 +53,9 @@
           {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Sistemas de gestión y apps a medida"}},
           {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Web con catálogo y WhatsApp automático"}},
           {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Redes con grabación en planta"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Anuncios en Google, Instagram y Facebook"}}
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Anuncios en Google, Instagram y Facebook"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Atención de consultas"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Capacitación de vendedores y mejora de procesos"}}
         ]
       }
     },
@@ -120,7 +122,27 @@ header.solido .ln{opacity:1}
 header.solido nav a{color:var(--t-osc)}
 header.solido nav a:hover{color:var(--negro)}
 header.solido nav .btn-alab{background:var(--teal);color:var(--blanco)}
-@media(max-width:900px){nav a:not(.btn){display:none}header .logo{height:28px}}
+/* menú del celu */
+.menu-btn{display:none;position:relative;z-index:3;width:48px;height:48px;background:none;border:0;cursor:pointer;color:var(--blanco)}
+.menu-btn i{position:absolute;right:10px;height:3px;background:currentColor;transition:transform .35s,width .35s,top .35s}
+.menu-btn i:nth-child(1){top:17px;width:28px}
+.menu-btn i:nth-child(2){top:27px;width:18px}
+header.solido .menu-btn{color:var(--negro)}
+header.abierto .menu-btn{color:var(--blanco)}
+header.abierto .menu-btn i{top:22px;width:28px}
+header.abierto .menu-btn i:nth-child(1){transform:rotate(45deg)}
+header.abierto .menu-btn i:nth-child(2){transform:rotate(-45deg)}
+@media(max-width:900px){
+  header .logo{height:28px;z-index:3}
+  .menu-btn{display:block}
+  nav{position:fixed;inset:0;z-index:2;background:var(--teal);flex-direction:column;align-items:stretch;justify-content:center;gap:0;padding:90px 24px 40px;transform:translateY(-102%);transition:transform .5s cubic-bezier(.7,0,.2,1);overflow:hidden}
+  nav::before{content:"";position:absolute;right:-30%;bottom:-10%;width:80%;height:70%;background:var(--indigo);transform:skewX(var(--corte));opacity:.8}
+  nav a:not(.btn),header.solido nav a:not(.btn){position:relative;display:block;font-family:Montserrat;font-weight:800;font-size:2rem;text-transform:uppercase;letter-spacing:-.02em;color:var(--blanco);padding:14px 0;border-bottom:1px solid var(--l-cla)}
+  nav .btn,header.solido nav .btn-alab{position:relative;margin-top:30px;align-self:flex-start;padding:18px 28px;font-size:.9rem;background:var(--alabastro);color:var(--teal)}
+  header.abierto nav{transform:none}
+  header.abierto .lb{opacity:1}header.abierto .ln{opacity:0}
+  header.abierto ~ .wa{display:none}
+}
 
 /* hero con video */
 .hero{background:var(--teal);color:var(--blanco);padding:150px 0 0;overflow:hidden}
@@ -130,7 +152,20 @@ header.solido nav .btn-alab{background:var(--teal);color:var(--blanco)}
 .cortes i:nth-child(2){background:var(--indigo);opacity:.85}
 .cortes i:nth-child(3){background:var(--negro);opacity:.25}
 .hero .wrap{position:relative;z-index:2}
-.hero-txt{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:end}
+.hero-txt{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center}
+.hero-izq .lead{max-width:520px;margin-top:28px}
+/* la O de Octano animada */
+.o-escena{perspective:1100px;justify-self:center;width:min(100%,440px)}
+.o-giro{transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) rotateZ(var(--rz,0deg));transition:transform .25s ease-out;will-change:transform}
+.o-float{position:relative;animation:o-entra 1.5s cubic-bezier(.2,.8,.2,1) .2s both,o-flota 7s ease-in-out 1.7s infinite}
+.o-img{width:100%;height:auto;filter:drop-shadow(0 40px 50px rgba(0,0,0,.45))}
+.o-brillo{position:absolute;inset:0;-webkit-mask:url(img/o-3d.webp) center/contain no-repeat;mask:url(img/o-3d.webp) center/contain no-repeat;background:linear-gradient(120deg,transparent 40%,rgba(255,255,255,.55) 50%,transparent 60%) no-repeat;background-size:300% 100%;background-position:150% 0;animation:o-brillo 6s ease-in-out 1.6s infinite;mix-blend-mode:screen;pointer-events:none}
+@keyframes o-entra{
+  0%{opacity:0;clip-path:polygon(-40% 140%,-40% 140%,-40% 140%);transform:scale(.8) rotate(-28deg)}
+  30%{opacity:1}
+  100%{opacity:1;clip-path:polygon(-40% 140%,-40% -400%,500% 140%);transform:none}}
+@keyframes o-flota{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes o-brillo{0%,55%{background-position:150% 0}85%,100%{background-position:-50% 0}}
 .hero .etq{color:var(--alabastro)}
 .hero h1{margin-top:24px}
 .hero h1 .sub{display:block;font-family:"Barlow Semi Condensed",sans-serif;font-weight:600;font-size:clamp(1rem,1.5vw,1.2rem);letter-spacing:.14em;text-transform:uppercase;color:var(--t-cla);margin-bottom:18px}
@@ -144,7 +179,7 @@ header.solido nav .btn-alab{background:var(--teal);color:var(--blanco)}
 .video video{width:100%;height:100%;object-fit:cover}
 .video .sello{position:absolute;left:0;bottom:0;background:var(--alabastro);color:var(--teal);font-family:"Barlow Semi Condensed";font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;padding:10px 16px}
 .hero-pie{position:relative;z-index:1;background:linear-gradient(transparent 50%,var(--blanco) 50%)}
-@media(max-width:900px){.hero-txt{grid-template-columns:1fr;gap:20px}.hero{padding-top:120px}.video{margin-top:40px;clip-path:polygon(0 0,100% 0,100% calc(100% - 24px),calc(100% - 24px) 100%,0 100%)}.cortes{width:90%;right:-45%}}
+@media(max-width:900px){.hero-txt{grid-template-columns:1fr;gap:0;position:relative}.o-escena{position:absolute;top:-34px;right:-14px;width:min(42vw,230px);z-index:0}.hero-izq{position:relative;z-index:1}.hero h1 .sub{max-width:52%;min-height:min(30vw,170px);display:flex;align-items:flex-end}.hero{padding-top:120px}.video{margin-top:40px;clip-path:polygon(0 0,100% 0,100% calc(100% - 24px),calc(100% - 24px) 100%,0 100%)}.cortes{width:90%;right:-45%}}
 
 /* datos */
 .datos{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--l-osc)}
@@ -157,18 +192,16 @@ header.solido nav .btn-alab{background:var(--teal);color:var(--blanco)}
 /* servicios: 4 tarjetas cortas */
 .servicios{padding-top:72px}
 .servicios .etq,.stack .etq,.como .etq,.faq .etq{color:var(--indigo)}
-.areas{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.areas{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.area .ico{display:block;width:64px;height:64px;background:var(--teal);-webkit-mask:var(--ico) center/contain no-repeat;mask:var(--ico) center/contain no-repeat;transition:background .3s}
+.area:hover .ico{background:var(--alabastro)}
 .area{background:var(--alabastro);padding:30px 26px 32px;position:relative;clip-path:polygon(0 0,100% 0,100% calc(100% - 26px),calc(100% - 26px) 100%,0 100%);transition:background .3s,color .3s}
 .area:hover{background:var(--teal);color:var(--blanco)}
-.area svg{width:46px;height:46px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .area .n{position:absolute;top:24px;right:24px;font-family:"Barlow Semi Condensed";font-weight:700;color:var(--indigo);letter-spacing:.1em;font-size:.9rem}
 .area:hover .n{color:var(--alabastro)}
 .area h3{font-size:1.15rem;font-weight:800;text-transform:uppercase;margin:26px 0 10px}
 .area p{font-size:.95rem;color:var(--t-osc)}
 .area:hover p{color:var(--t-cla)}
-.ademas{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;align-items:center}
-.ademas .etq{margin-right:8px}
-.ademas span:not(.etq){font-weight:600;font-size:.92rem;padding:10px 16px;background:var(--negro);color:var(--blanco)}
 @media(max-width:980px){.areas{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.areas{grid-template-columns:1fr}}
 
@@ -196,12 +229,8 @@ header.solido nav .btn-alab{background:var(--teal);color:var(--blanco)}
 .paso.clave .num{color:var(--alabastro)}
 .paso.clave p{color:var(--t-cla)}
 .paso.clave+.paso{border-left:0}
-.atiende{margin-top:40px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;background:var(--alabastro);padding:26px 30px}
-.atiende b{font-family:"Barlow Semi Condensed";font-weight:700;font-size:2.6rem;color:var(--teal);line-height:1;white-space:nowrap}
-.atiende p{color:var(--t-osc)}
-.atiende p strong{color:var(--negro)}
 @media(max-width:900px){.pasos{grid-template-columns:1fr 1fr}.paso:nth-child(3){padding-left:0;border-left:0}.paso:nth-child(n+3){border-top:1px solid var(--l-osc)}.paso.clave{padding-left:24px}}
-@media(max-width:520px){.pasos{grid-template-columns:1fr}.paso,.paso+.paso{padding-left:0;border-left:0;border-top:1px solid var(--l-osc)}.paso.clave{padding:28px 22px}.atiende{grid-template-columns:1fr;gap:10px}}
+@media(max-width:520px){.pasos{grid-template-columns:1fr}.paso,.paso+.paso{padding-left:0;border-left:0;border-top:1px solid var(--l-osc)}.paso.clave{padding:28px 22px}}
 
 /* equipo */
 .equipo{background:var(--alabastro)}
@@ -282,7 +311,8 @@ footer{background:var(--negro);color:var(--t-cla);padding:56px 0 34px;font-size:
       <img class="lb" src="img/logo-blanco.png" alt="Octano Empresas" width="1745" height="513">
       <img class="ln" src="img/logo-negro.png" alt="" width="1745" height="513">
     </a>
-    <nav aria-label="Principal">
+    <button class="menu-btn" id="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
+    <nav aria-label="Principal" id="menu">
       <a href="#servicios">Servicios</a>
       <a href="#herramientas">Herramientas</a>
       <a href="#equipo">Equipo</a>
@@ -297,6 +327,7 @@ footer{background:var(--negro);color:var(--t-cla);padding:56px 0 34px;font-size:
   <div class="cortes" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="wrap">
     <div class="hero-txt">
+      <div class="hero-izq">
       <h1 class="entra">
         <span class="sub">Sistemas a medida, web y marketing para empresas y fábricas</span>
         <span class="grande">Ordenamos tu empresa. <span class="marca">Impulsamos</span> tus ventas.</span>
@@ -306,6 +337,15 @@ footer{background:var(--negro);color:var(--t-cla);padding:56px 0 34px;font-size:
         <div class="ctas">
           <a class="btn btn-alab js-wa" href="#contacto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>Escribinos</a>
           <a class="btn btn-linea" href="#servicios">Servicios</a>
+        </div>
+      </div>
+      </div>
+      <div class="o-escena" aria-hidden="true">
+        <div class="o-giro" id="o-giro">
+          <div class="o-float">
+            <img class="o-img" src="img/o-3d.webp" alt="" width="800" height="800">
+            <i class="o-brillo"></i>
+          </div>
         </div>
       </div>
     </div>
@@ -326,7 +366,7 @@ footer{background:var(--negro);color:var(--t-cla);padding:56px 0 34px;font-size:
     <div class="datos aparece" style="margin-bottom:72px">
       <div class="dato"><b>48 h</b><span>para ver tu demo funcionando</span></div>
       <div class="dato"><b>$0</b><span>hasta que la veas y aceptes</span></div>
-      <div class="dato"><b>4</b><span>áreas conectadas entre sí</span></div>
+      <div class="dato"><b>6</b><span>servicios conectados entre sí</span></div>
       <div class="dato"><b>1</b><span>solo equipo responsable</span></div>
     </div>
     <div class="cab aparece">
@@ -334,34 +374,18 @@ footer{background:var(--negro);color:var(--t-cla);padding:56px 0 34px;font-size:
       <p>Arrancamos por lo que más te urge y vamos sumando. Cada cosa se conecta con la anterior.</p>
     </div>
     <div class="areas">
-      <article class="area aparece">
-        <span class="n">01</span>
-        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6 4 16l20 10 20-10L24 6Z"/><path d="m4 24 20 10 20-10"/><path d="m4 32 20 10 20-10"/></svg>
-        <h3>Sistemas y apps a medida</h3>
-        <p>Clientes, pedidos, stock, cobros y producción, desde la compu o el celular.</p>
-      </article>
-      <article class="area aparece">
-        <span class="n">02</span>
-        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 8h6l5 24h24l5-16H13"/><circle cx="18" cy="40" r="3"/><circle cx="36" cy="40" r="3"/></svg>
-        <h3>Web y WhatsApp automático</h3>
-        <p>Web con catálogo y pedidos, y un WhatsApp que contesta solo.</p>
-      </article>
-      <article class="area aparece">
-        <span class="n">03</span>
-        <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="10" width="32" height="22" rx="2"/><path d="M3 38h42l-3-6H6l-3 6Z"/></svg>
-        <h3>Redes con grabación</h3>
-        <p>Grabamos en tu planta, editamos y publicamos por vos.</p>
-      </article>
-      <article class="area aparece">
-        <span class="n">04</span>
-        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 40V30M18 40V24M28 40V18M38 40V10"/><path d="m6 22 12-10 8 6 16-12"/><path d="M36 6h6v6"/></svg>
-        <h3>Anuncios y clientes</h3>
-        <p>Google, Instagram y Facebook, medidos de la consulta a la venta.</p>
-      </article>
-    </div>
-    <div class="ademas aparece">
-      <span class="etq">Además</span>
-      <span>Atención de consultas</span><span>Capacitación a vendedores</span><span>Mejora de procesos</span><span>Asesoramiento</span>
+      <article class="area aparece"><span class="n">01</span><i class="ico" style="--ico:url(img/servicios/sistemas.png)"></i>
+        <h3>Sistemas y apps a medida</h3><p>Clientes, pedidos, stock, cobros y producción, desde la compu o el celular.</p></article>
+      <article class="area aparece"><span class="n">02</span><i class="ico" style="--ico:url(img/servicios/web.png)"></i>
+        <h3>Web y WhatsApp automático</h3><p>Web con catálogo y pedidos, y un WhatsApp que contesta solo.</p></article>
+      <article class="area aparece"><span class="n">03</span><i class="ico" style="--ico:url(img/servicios/redes.png)"></i>
+        <h3>Redes con grabación</h3><p>Grabamos en tu planta, editamos y publicamos por vos.</p></article>
+      <article class="area aparece"><span class="n">04</span><i class="ico" style="--ico:url(img/servicios/anuncios.png)"></i>
+        <h3>Anuncios y clientes</h3><p>Google, Instagram y Facebook, medidos de la consulta a la venta.</p></article>
+      <article class="area aparece"><span class="n">05</span><i class="ico" style="--ico:url(img/servicios/atencion.png)"></i>
+        <h3>Atención de consultas</h3><p>Un equipo nuestro contesta y sigue a cada interesado. A vos te queda vender.</p></article>
+      <article class="area aparece"><span class="n">06</span><i class="ico" style="--ico:url(img/servicios/capacitacion.png)"></i>
+        <h3>Capacitación y procesos</h3><p>Capacitamos a tus vendedores cada semana y te asesoramos para ordenar tu planta.</p></article>
     </div>
   </div>
 </section>
@@ -393,10 +417,6 @@ footer{background:var(--negro);color:var(--t-cla);padding:56px 0 34px;font-size:
       <div class="paso clave"><span class="num">02</span><h3>Demo en 48 h</h3><p>Funcionando y con tu marca, antes de cobrar.</p></div>
       <div class="paso"><span class="num">03</span><h3>Propuesta por etapas</h3><p>Por escrito: qué incluye, cuánto sale y cuándo.</p></div>
       <div class="paso"><span class="num">04</span><h3>Seguimiento semanal</h3><p>Cada etapa se paga cuando está entregada.</p></div>
-    </div>
-    <div class="atiende aparece">
-      <b>40 de 140</b>
-      <p>Un estudio que contestaba al toque cerró <strong>40 clientes de 140 consultas</strong>. Un consultorio con la misma publicidad y sin nadie que atendiera: <strong>1 de 40</strong>. Por eso no solo te traemos consultas: también nos aseguramos de que alguien las atienda.</p>
     </div>
   </div>
 </section>
@@ -504,6 +524,21 @@ if (WHATSAPP) document.querySelectorAll(".js-wa").forEach(a => {
 const header = document.getElementById("header"), hero = document.querySelector(".hero-txt");
 const pintar = () => header.classList.toggle("solido", window.scrollY > hero.offsetTop + hero.offsetHeight);
 addEventListener("scroll", pintar, { passive: true }); pintar();
+// la O: se inclina siguiendo el mouse y gira un poco al bajar
+const oGiro = document.getElementById("o-giro");
+if (oGiro && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  let rx = 0, ry = 0;
+  const aplicar = () => { oGiro.style.setProperty("--rx", rx + "deg"); oGiro.style.setProperty("--ry", ry + "deg"); oGiro.style.setProperty("--rz", Math.min(scrollY, 900) * -0.04 + "deg"); };
+  addEventListener("pointermove", e => { if (e.pointerType !== "mouse") return; ry = (e.clientX / innerWidth - .5) * 34; rx = (e.clientY / innerHeight - .5) * -24; aplicar(); }, { passive: true });
+  addEventListener("deviceorientation", e => { if (e.gamma == null) return; ry = Math.max(-20, Math.min(20, e.gamma)) ; rx = Math.max(-15, Math.min(15, (e.beta || 45) - 45)) * -1; aplicar(); }, { passive: true });
+  addEventListener("scroll", aplicar, { passive: true });
+}
+// menú del celu
+const btnMenu = document.getElementById("menu-btn");
+const menu = (abrir) => { header.classList.toggle("abierto", abrir); btnMenu.setAttribute("aria-expanded", abrir); btnMenu.setAttribute("aria-label", abrir ? "Cerrar menú" : "Abrir menú"); document.body.style.overflow = abrir ? "hidden" : ""; };
+btnMenu.addEventListener("click", () => menu(!header.classList.contains("abierto")));
+document.querySelectorAll("#menu a").forEach(a => a.addEventListener("click", () => menu(false)));
+addEventListener("keydown", e => { if (e.key === "Escape") menu(false); });
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visto"); io.unobserve(e.target); } }), { threshold: .12 });
 document.querySelectorAll(".aparece").forEach(el => io.observe(el));
 </script>
