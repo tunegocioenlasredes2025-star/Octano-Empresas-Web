@@ -156,16 +156,7 @@ header.abierto .menu-btn i:nth-child(2){transform:rotate(-45deg)}
 .hero-izq .lead{max-width:520px;margin-top:28px}
 /* la O de Octano animada */
 .o-escena{perspective:1100px;justify-self:center;width:min(100%,440px)}
-.o-giro{transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) rotateZ(var(--rz,0deg));transition:transform .25s ease-out;will-change:transform}
-.o-float{position:relative;animation:o-entra 1.5s cubic-bezier(.2,.8,.2,1) .2s both,o-flota 7s ease-in-out 1.7s infinite}
-.o-img{width:100%;height:auto;filter:drop-shadow(0 40px 50px rgba(0,0,0,.45))}
-.o-brillo{position:absolute;inset:0;-webkit-mask:url(img/o-3d.webp) center/contain no-repeat;mask:url(img/o-3d.webp) center/contain no-repeat;background:linear-gradient(120deg,transparent 40%,rgba(255,255,255,.55) 50%,transparent 60%) no-repeat;background-size:300% 100%;background-position:150% 0;animation:o-brillo 6s ease-in-out 1.6s infinite;mix-blend-mode:screen;pointer-events:none}
-@keyframes o-entra{
-  0%{opacity:0;clip-path:polygon(-40% 140%,-40% 140%,-40% 140%);transform:scale(.8) rotate(-28deg)}
-  30%{opacity:1}
-  100%{opacity:1;clip-path:polygon(-40% 140%,-40% -400%,500% 140%);transform:none}}
-@keyframes o-flota{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-@keyframes o-brillo{0%,55%{background-position:150% 0}85%,100%{background-position:-50% 0}}
+.o-img{width:100%;height:auto}
 .hero .etq{color:var(--alabastro)}
 .hero h1{margin-top:24px}
 .hero h1 .sub{display:block;font-family:"Barlow Semi Condensed",sans-serif;font-weight:600;font-size:clamp(1rem,1.5vw,1.2rem);letter-spacing:.14em;text-transform:uppercase;color:var(--t-cla);margin-bottom:18px}
@@ -175,9 +166,8 @@ header.abierto .menu-btn i:nth-child(2){transform:rotate(-45deg)}
 .hero .lead{font-size:1.08rem;color:var(--t-cla)}
 .hero .lead b{color:var(--blanco);font-weight:600}
 .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-.video{position:relative;margin-top:64px;aspect-ratio:16/9;background:var(--negro);clip-path:polygon(0 0,100% 0,100% calc(100% - 48px),calc(100% - 48px) 100%,0 100%);box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.video{position:relative;margin:64px auto 0;max-width:940px;aspect-ratio:16/9;background:var(--negro);clip-path:polygon(0 0,100% 0,100% calc(100% - 48px),calc(100% - 48px) 100%,0 100%);box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
 .video video{width:100%;height:100%;object-fit:cover}
-.video .sello{position:absolute;left:0;bottom:0;background:var(--alabastro);color:var(--teal);font-family:"Barlow Semi Condensed";font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;padding:10px 16px}
 .hero-pie{position:relative;z-index:1;background:linear-gradient(transparent 50%,var(--blanco) 50%)}
 @media(max-width:900px){.hero-txt{grid-template-columns:1fr;gap:0;position:relative}.o-escena{position:absolute;top:-34px;right:-14px;width:min(42vw,230px);z-index:0}.hero-izq{position:relative;z-index:1}.hero h1 .sub{max-width:52%;min-height:min(30vw,170px);display:flex;align-items:flex-end}.hero{padding-top:120px}.video{margin-top:40px;clip-path:polygon(0 0,100% 0,100% calc(100% - 24px),calc(100% - 24px) 100%,0 100%)}.cortes{width:90%;right:-45%}}
 
@@ -341,12 +331,7 @@ footer{background:var(--negro);color:var(--t-cla);padding:56px 0 34px;font-size:
       </div>
       </div>
       <div class="o-escena" aria-hidden="true">
-        <div class="o-giro" id="o-giro">
-          <div class="o-float">
-            <img class="o-img" src="img/o-3d.webp" alt="" width="800" height="800">
-            <i class="o-brillo"></i>
-          </div>
-        </div>
+        <img class="o-img" src="img/o-3d.webp" alt="" width="800" height="800">
       </div>
     </div>
   </div>
@@ -355,7 +340,6 @@ footer{background:var(--negro);color:var(--t-cla);padding:56px 0 34px;font-size:
       <div class="video entra">
         <!-- Video de presentación. Cuando esté el video con nosotros, se reemplaza img/presentacion.mp4 (mismo nombre). -->
         <video src="img/presentacion.mp4" poster="img/presentacion.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Video de presentación de Octano Empresas"></video>
-        <span class="sello">Demo en 48 h</span>
       </div>
     </div>
   </div>
@@ -524,15 +508,6 @@ if (WHATSAPP) document.querySelectorAll(".js-wa").forEach(a => {
 const header = document.getElementById("header"), hero = document.querySelector(".hero-txt");
 const pintar = () => header.classList.toggle("solido", window.scrollY > hero.offsetTop + hero.offsetHeight);
 addEventListener("scroll", pintar, { passive: true }); pintar();
-// la O: se inclina siguiendo el mouse y gira un poco al bajar
-const oGiro = document.getElementById("o-giro");
-if (oGiro && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  let rx = 0, ry = 0;
-  const aplicar = () => { oGiro.style.setProperty("--rx", rx + "deg"); oGiro.style.setProperty("--ry", ry + "deg"); oGiro.style.setProperty("--rz", Math.min(scrollY, 900) * -0.04 + "deg"); };
-  addEventListener("pointermove", e => { if (e.pointerType !== "mouse") return; ry = (e.clientX / innerWidth - .5) * 34; rx = (e.clientY / innerHeight - .5) * -24; aplicar(); }, { passive: true });
-  addEventListener("deviceorientation", e => { if (e.gamma == null) return; ry = Math.max(-20, Math.min(20, e.gamma)) ; rx = Math.max(-15, Math.min(15, (e.beta || 45) - 45)) * -1; aplicar(); }, { passive: true });
-  addEventListener("scroll", aplicar, { passive: true });
-}
 // menú del celu
 const btnMenu = document.getElementById("menu-btn");
 const menu = (abrir) => { header.classList.toggle("abierto", abrir); btnMenu.setAttribute("aria-expanded", abrir); btnMenu.setAttribute("aria-label", abrir ? "Cerrar menú" : "Abrir menú"); document.body.style.overflow = abrir ? "hidden" : ""; };
