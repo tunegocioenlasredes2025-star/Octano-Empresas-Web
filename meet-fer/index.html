@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Meet con Fer · Octano Empresas</title>
+<link rel="icon" href="../img/iso-teal.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root { --gris:#EAEAEA; --gris2:#F4F4F4; --indigo:#313D5A; --teal:#183642; --negro:#0B0D10; --sub:#5B6472; --subo:#A9B6C4; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { height:100%; background:#000; overflow:hidden; font-family:Inter, system-ui, sans-serif; color:var(--negro); }
+.escena { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; }
+.stage { position:relative; width:1600px; height:900px; transform-origin:center center; flex:0 0 auto; }
+.slide { position:absolute; inset:0; overflow:hidden; background:var(--gris); opacity:0; visibility:hidden; pointer-events:none; transition:opacity .6s, visibility 0s linear .6s; padding:84px 96px; }
+.slide.on { opacity:1; visibility:visible; pointer-events:auto; transition:opacity .6s, visibility 0s; }
+.slide.osc { background:var(--teal); color:#fff; }
+.slide.ind { background:var(--indigo); color:#fff; }
+.fx { opacity:0; transform:translateY(26px); transition:opacity .7s, transform .7s cubic-bezier(.2,.8,.25,1); }
+.slide.on .fx { opacity:1; transform:none; }
+.slide.on .d1 { transition-delay:.12s } .slide.on .d2 { transition-delay:.26s } .slide.on .d3 { transition-delay:.4s }
+.slide.on .d4 { transition-delay:.55s } .slide.on .d5 { transition-delay:.7s } .slide.on .d6 { transition-delay:.85s } .slide.on .d7 { transition-delay:1s }
+.fx.der { transform:translateX(60px); } .fx.zoom { transform:scale(.94); }
+h1,h2,h3,.mont { font-family:Montserrat, sans-serif; }
+.eyebrow { font-family:Montserrat; font-weight:700; font-size:17px; letter-spacing:4px; text-transform:uppercase; color:var(--indigo); display:flex; align-items:center; gap:14px; }
+.osc .eyebrow, .ind .eyebrow { color:var(--subo); }
+.eyebrow::before { content:""; width:34px; height:12px; background:linear-gradient(115deg, transparent 0 30%, currentColor 30% 70%, transparent 70%); }
+h2 { font-size:56px; font-weight:800; line-height:1.07; letter-spacing:-1px; margin-top:22px; max-width:1260px; }
+.lead { font-size:23px; line-height:1.5; color:var(--sub); margin-top:20px; max-width:1100px; }
+.osc .lead, .ind .lead { color:#C9D3DD; }
+.num { font-family:'Barlow Semi Condensed', sans-serif; font-weight:700; }
+/* corte octano */
+.corte { position:absolute; pointer-events:none; }
+.corte i { position:absolute; top:0; height:100%; transform:skewX(-28deg); }
+.pie { position:absolute; left:96px; right:96px; bottom:34px; display:flex; justify-content:space-between; align-items:center; font-size:15px; color:#8A93A0; }
+.osc .pie, .ind .pie { color:#7F95A6; }
+.pie img { height:26px; }
+/* tarjetas */
+.cards { display:grid; gap:22px; margin-top:44px; }
+.card { background:#fff; border-radius:14px; padding:30px 30px 28px; position:relative; overflow:hidden; }
+.osc .card, .ind .card { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); }
+.card h3 { font-size:25px; font-weight:800; line-height:1.2; margin-bottom:10px; }
+.card p { font-size:19px; line-height:1.5; color:var(--sub); }
+.osc .card p, .ind .card p { color:#C9D3DD; }
+.card .tag { font-family:Montserrat; font-size:14px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--indigo); margin-bottom:12px; }
+.osc .card .tag, .ind .card .tag { color:var(--subo); }
+.card::after { content:""; position:absolute; right:-18px; top:0; width:60px; height:8px; background:var(--teal); transform:skewX(-28deg); }
+.osc .card::after, .ind .card::after { background:var(--subo); opacity:.5; }
+.ico { width:54px; height:54px; margin-bottom:18px; stroke:var(--teal); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.osc .ico, .ind .ico { stroke:#fff; }
+/* nav */
+#prog { position:fixed; left:0; top:0; height:4px; background:var(--indigo); transition:width .4s; z-index:5; }
+#contn { position:fixed; right:22px; bottom:16px; font:600 13px Inter; color:#8A93A0; z-index:5; }
+.flecha { position:fixed; top:0; bottom:0; width:6%; z-index:4; cursor:pointer; }
+#izq { left:0 } #der { right:0 }
+#ayuda { position:fixed; left:50%; bottom:18px; transform:translateX(-50%); font:500 14px Inter; color:#8A93A0; z-index:5; transition:opacity .5s; }
+table { border-collapse:collapse; width:100%; margin-top:36px; font-size:20px; }
+th { text-align:left; font:700 15px Montserrat; letter-spacing:2px; text-transform:uppercase; color:var(--indigo); padding:0 18px 14px; border-bottom:2px solid var(--teal); }
+td { padding:16px 18px; border-bottom:1px solid #D2D2D2; vertical-align:top; line-height:1.4; }
+td b { font-weight:600; }
+.tchica td { padding:11px 18px; }
+.pill { display:inline-block; font:700 14px Montserrat; letter-spacing:1px; text-transform:uppercase; padding:6px 12px; border-radius:6px; }
+.p-mal { background:var(--teal); color:#fff; } .p-ok { background:#D9DEE5; color:var(--indigo); }
+.paso { display:flex; flex-direction:column; gap:10px; }
+.paso .n { font-family:'Barlow Semi Condensed'; font-weight:700; font-size:64px; line-height:1; color:var(--indigo); }
+.osc .paso .n { color:var(--subo); }
+.flujo { display:flex; align-items:center; gap:14px; margin-top:44px; }
+.flujo .f { flex:1; text-align:center; font:700 22px Montserrat; padding:26px 12px; border-radius:12px; background:#fff; }
+.flujo .f.fer { background:var(--teal); color:#fff; }
+.flujo .fl { width:34px; height:14px; background:var(--indigo); clip-path:polygon(0 30%,60% 30%,60% 0,100% 50%,60% 100%,60% 70%,0 70%); flex:0 0 auto; }
+.big { font-family:'Barlow Semi Condensed'; font-weight:700; font-size:110px; line-height:.95; }
+.linea { display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin-top:50px; position:relative; }
+.linea .et { padding:0 26px 0 0; }
+.linea .barra { height:10px; background:var(--indigo); margin-bottom:26px; position:relative; transform:skewX(-28deg); transform-origin:left; }
+.linea .et:nth-child(2) .barra { background:var(--teal); } .linea .et:nth-child(3) .barra { background:#5B6E8A; } .linea .et:nth-child(4) .barra { background:#000; }
+.linea h3 { font-size:24px; font-weight:800; margin-bottom:6px; }
+.linea .cuando { font:700 16px Montserrat; letter-spacing:2px; text-transform:uppercase; color:var(--indigo); margin-bottom:12px; }
+.linea ul { list-style:none; } .linea li { font-size:18.5px; line-height:1.45; color:var(--sub); padding-left:18px; position:relative; margin-bottom:8px; }
+.linea li::before { content:""; position:absolute; left:0; top:10px; width:9px; height:4px; background:var(--teal); transform:skewX(-28deg); }
+.check { display:grid; grid-template-columns:1fr 1fr; gap:18px 26px; margin-top:42px; }
+.check div { display:flex; gap:18px; align-items:flex-start; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:22px 24px; }
+.check .bx { width:30px; height:30px; border:2px solid var(--subo); border-radius:6px; flex:0 0 auto; margin-top:2px; }
+.check h3 { font-size:23px; font-weight:800; margin-bottom:6px; }
+.check p { font-size:18px; line-height:1.45; color:#C9D3DD; }
+.links { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:44px; }
+.links a { display:flex; flex-direction:column; gap:8px; padding:26px 26px 24px; border-radius:14px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14); color:#fff; text-decoration:none; transition:background .2s; position:relative; z-index:6; }
+.links a:hover { background:rgba(255,255,255,.14); }
+.links .tag { font:700 14px Montserrat; letter-spacing:2px; text-transform:uppercase; color:var(--subo); }
+.links b { font:700 22px Montserrat; word-break:break-all; }
+.links em { font-style:normal; font-size:17px; color:#C9D3DD; }
+.tag2 { font:700 15px Montserrat; letter-spacing:2px; text-transform:uppercase; color:var(--indigo); margin-bottom:26px; line-height:1.5; }
+.barras .br { display:grid; grid-template-columns:230px 1fr 110px; align-items:center; gap:16px; margin-bottom:22px; }
+.barras .et { font-size:18px; color:var(--sub); }
+.barras .b { height:46px; background:#C7CCD4; transform:skewX(-20deg); width:0; transition:width 1.2s cubic-bezier(.2,.8,.25,1) .5s; }
+.slide.on .barras .b { width:var(--w); }
+.barras .med .b { background:var(--teal); } .barras .med .et { color:var(--negro); font-weight:600; }
+.barras .v { font-size:34px; }
+.flujo .f.osc2 { background:rgba(255,255,255,.08); color:#fff; border:1px solid rgba(255,255,255,.14); font-size:19px; }
+.flujo .f.fer2 { background:#fff; color:var(--teal); font-size:19px; }
+.ind .flujo .fl { background:var(--subo); }
+.embudo div { width:var(--w); background:var(--indigo); color:#fff; padding:18px 22px; margin-bottom:10px; font-size:18px; border-radius:4px; clip-path:polygon(0 0,100% 0,calc(100% - 18px) 100%,0 100%); }
+.embudo div .num { font-size:34px; margin-right:10px; vertical-align:-4px; }
+.embudo div:nth-child(2) { background:#5B6E8A; } .embudo div:nth-child(3) { background:var(--teal); } .embudo .neg { background:#000 !important; min-width:420px; }
+.check .nn { font-size:40px; color:var(--subo); width:40px; flex:0 0 auto; line-height:1; }
+.check div > div { background:none; border:0; padding:0; display:block; }
+.osc .check div { padding:16px 24px; }
+td .s { font-size:16px; color:var(--sub); }
+td.n2 { font-size:24px; white-space:nowrap; }
+.paises { display:grid; grid-template-columns:1.3fr 1fr 1fr 1fr 1fr; gap:16px; margin-top:38px; }
+.pa { background:#fff; border-radius:14px; padding:24px 22px; position:relative; }
+.pa.uno { background:var(--indigo); color:#fff; } .pa.uno p { color:#C9D3DD; }
+.pa .num { font-size:46px; line-height:1; color:var(--indigo); } .pa.uno .num { color:var(--subo); }
+.pa h3 { font-size:24px; font-weight:800; margin:10px 0 8px; }
+.pa p { font-size:16.5px; line-height:1.45; color:var(--sub); }
+.lista { list-style:none; margin-top:6px; } .lista li { font-size:20px; line-height:1.45; padding-left:22px; position:relative; margin-bottom:12px; color:#C9D3DD; }
+.lista li::before { content:""; position:absolute; left:0; top:11px; width:11px; height:5px; background:var(--subo); transform:skewX(-28deg); }
+.check { gap:12px 22px; margin-top:30px; }
+.osc .check div { padding:14px 22px; align-items:center; }
+.check h3 { font-size:21px; margin-bottom:4px; }
+.check p { font-size:17px; line-height:1.4; }
+.reglas.check { gap:10px; margin-top:28px; }
+.reglas.check > div { padding:12px 24px; }
+.c6 .card { padding:24px 26px 22px; } .c6 .card p { font-size:17.5px; }
+.fin { list-style:none; margin-top:40px; }
+.fin li { display:flex; gap:26px; align-items:flex-start; font:700 32px/1.3 Montserrat; margin-bottom:36px; }
+.fin .num { font-size:64px; line-height:.9; color:var(--subo); flex:0 0 50px; }
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div class="escena"><div class="stage" id="stage">
+
+<!-- 1 PORTADA -->
+<section class="slide" style="padding:0">
+  <div class="corte" style="right:-120px;top:0;width:900px;height:900px">
+    <i style="left:330px;width:170px;background:#D6D6D6"></i>
+    <i style="left:540px;width:220px;background:var(--indigo)"></i>
+    <i style="left:800px;width:320px;background:var(--teal)"></i>
+  </div>
+  <div style="position:absolute;left:110px;top:120px;width:840px">
+    <div class="eyebrow fx">Meet de socios · jueves 12 de noviembre</div>
+    <img class="fx d1" src="../img/logo-negro.png" alt="Octano Empresas" style="width:620px;margin-top:64px;display:block">
+    <p class="fx d2 mont" style="font-size:44px;font-weight:800;margin-top:52px;line-height:1.15">Dónde estamos<br>y cómo seguimos.</p>
+    <p class="fx d3" style="font-size:21px;color:var(--sub);margin-top:26px;line-height:1.5">Lo que armamos desde el lunes, lo que investigamos,<br>lo que falta y lo que hay que decidir entre los tres.</p>
+  </div>
+  <div class="pie" style="left:110px"><span class="mont" style="font-weight:700;color:var(--negro);font-size:18px">Fer · Mateo · Santi</span><span></span></div>
+</section>
+
+<!-- 2 LO QUE YA ESTA -->
+<section class="slide">
+  <div class="eyebrow fx">Desde el lunes 9</div>
+  <h2 class="fx d1">En tres días, Octano ya tiene cara, web y sistema.</h2>
+  <div class="cards c6" style="grid-template-columns:repeat(3,1fr);margin-top:34px;gap:18px">
+    <div class="card fx d2"><div class="tag">Marca</div><h3>Manual de marca completo</h3><p>Logo, colores, letras, el Corte Octano, tono y cómo se editan los videos. Piezas listas: portada de reel, historia, banner de LinkedIn, tarjeta de Fer y posteo de presentación.</p></div>
+    <div class="card fx d3"><div class="tag">Web</div><h3>Landing publicada</h3><p>Corta y pensada para Google: video arriba, los 6 servicios, lo que manejamos, pasos y preguntas. Oculta hasta tener dominio y WhatsApp.</p></div>
+    <div class="card fx d4"><div class="tag">CRM</div><h3>Nuestro propio CRM</h3><p>Hoy, embudo, empresas, reuniones, propuestas por etapa y tareas, con un rol para el call center. Revisado y listo para conectar.</p></div>
+    <div class="card fx d5"><div class="tag">Contenido</div><h3>8 guiones para grabar</h3><p>Copiando la estructura de cuentas reales que funcionaron (@elpyme, La Fábrica Podcast y otras). Más un sistema para analizar videos virales.</p></div>
+    <div class="card fx d6"><div class="tag">Números</div><h3>Plan de 90 días</h3><p>Cómo llegar a $10 millones por mes entre diciembre y febrero: escenarios, embudo, horas, paquetes y riesgos.</p></div>
+    <div class="card fx d7"><div class="tag">Papeles</div><h3>Lista para el INPI</h3><p>Los 8 servicios para el agente de marcas, con las clases probables (35, 42, 41 y quizás 9).</p></div>
+  </div>
+  <div class="pie"><img src="../img/logo-negro.png" alt=""><span>2</span></div>
+</section>
+
+<!-- 3 LINKS -->
+<section class="slide osc">
+  <div class="eyebrow fx">Para abrir durante la charla</div>
+  <h2 class="fx d1">Todo está publicado. Fer lo puede mirar tranquilo después.</h2>
+  <div class="links fx d2">
+    <a href="../" target="_blank"><span class="tag">La web</span><b>octano-empresas-web.vercel.app</b><em>La landing que van a ver las empresas</em></a>
+    <a href="../manual/" target="_blank"><span class="tag">Manual de marca</span><b>/manual</b><em>Cómo se ve y cómo habla Octano</em></a>
+    <a href="../guiones/" target="_blank"><span class="tag">Guiones</span><b>/guiones</b><em>Los 8 videos de la primera grabación</em></a>
+    <a href="../plan/" target="_blank"><span class="tag">Plan 90 días</span><b>/plan</b><em>El plan de los $10 millones, completo</em></a>
+    <a href="https://propuesta-fernando.vercel.app/octano/" target="_blank"><span class="tag">Reunión del 9/11</span><b>propuesta-fernando.vercel.app/octano</b><em>La presentación que vimos en lo de Fer</em></a>
+  </div>
+  <p class="lead fx d3" style="margin-top:34px">Las páginas internas (manual, guiones, plan y esta) no aparecen en Google.</p>
+  <div class="pie"><img src="../img/logo-blanco.png" alt=""><span>3</span></div>
+</section>
+
+<!-- 4 ESTUDIOS -->
+<section class="slide">
+  <div class="eyebrow fx">Lo que investigamos</div>
+  <h2 class="fx d1">Ocho estudios, una conclusión cada uno.</h2>
+  <table class="fx d2 tchica" style="font-size:18.5px;margin-top:30px">
+    <tr><th style="width:26%">Estudio</th><th>Lo que nos dejó</th></tr>
+    <tr><td><b>Competencia</b></td><td>Nadie junta el sistema con los clientes. El rival real es Tango: hay que vender "conectamos lo que ya usás", no "tirá tu sistema".</td></tr>
+    <tr><td><b>Precios del mercado</b></td><td>Nadie publica precios. Los sistemas estaban baratos: un CRM a medida en el mercado sale USD 8.000 a 30.000.</td></tr>
+    <tr><td><b>Agencias parecidas</b></td><td>ISMARK (España) es lo más parecido, pero no hace sistemas. En Sabadell está Pevitech, generalista.</td></tr>
+    <tr><td><b>Formatos de video</b></td><td>Entrevista en la puerta de la fábrica, el proceso en cortes rápidos, antes y después.</td></tr>
+    <tr><td><b>Contenido que funciona</b></td><td>14 cuentas reales: arrancar en medio de la escena, la planta de verdad y el dueño hablando como habla.</td></tr>
+    <tr><td><b>Atención rápida</b></td><td>Contestar en menos de 5 minutos y que cada llamada termine con la reunión puesta.</td></tr>
+    <tr><td><b>Exterior</b></td><td>Uruguay primero, después Paraguay y Chile. España cuando Fer viaje. Bolivia al final.</td></tr>
+    <tr><td><b>Plan $10 millones</b></td><td>Un febrero de ~$10 millones se puede. Lo que lo mueve son los sistemas y la agenda de Fer.</td></tr>
+  </table>
+  <div class="pie"><img src="../img/logo-negro.png" alt=""><span>4</span></div>
+</section>
+
+<!-- 5 LA META -->
+<section class="slide">
+  <div class="eyebrow fx">La meta</div>
+  <h2 class="fx d1">$10 millones por mes entre diciembre y febrero. Se puede, pero no está regalado.</h2>
+  <div style="display:grid;grid-template-columns:1.15fr 1fr;gap:60px;margin-top:44px">
+    <div class="fx d2">
+      <div class="tag2">Lo que factura Octano en febrero, según cuántos clientes cerremos</div>
+      <div class="barras">
+        <div class="br"><span class="et">Conservador · 6 clientes</span><div class="b" style="--w:31%"></div><span class="v num">$4,5 M</span></div>
+        <div class="br med"><span class="et">Medio · 9 clientes</span><div class="b" style="--w:67%"></div><span class="v num">$9,8 M</span></div>
+        <div class="br"><span class="et">Agresivo · 13 clientes</span><div class="b" style="--w:100%"></div><span class="v num">$14,6 M</span></div>
+      </div>
+      <p style="font-size:18px;color:var(--sub);margin-top:24px;line-height:1.5">En el medio quedan <b>~$2,6 M por socio</b> en febrero. Diciembre y enero son de siembra: lo que se cierra se cobra fuerte después.</p>
+    </div>
+    <div class="fx d3">
+      <div class="card" style="background:var(--teal);color:#fff"><div class="tag" style="color:var(--subo)">Lo que mueve la aguja</div><h3>Los sistemas de gestión</h3><p style="color:#C9D3DD">Cada uno son ~$5 millones. Sin al menos 2 sistemas en los 3 meses, febrero no pasa de $5 millones.</p></div>
+      <div class="card" style="margin-top:18px"><div class="tag">Lo que ataja</div><h3>Todo con su mensual</h3><p>Que en febrero haya al menos $3 millones fijos. $10 millones firmes todos los meses llega entre abril y junio.</p></div>
+    </div>
+  </div>
+  <div class="pie"><img src="../img/logo-negro.png" alt=""><span>5</span></div>
+</section>
+
+<!-- 6 EMBUDO -->
+<section class="slide ind">
+  <div class="eyebrow fx">Qué hace falta cada semana</div>
+  <h2 class="fx d1">El techo de Octano, por ahora, es la agenda de Fer.</h2>
+  <div class="flujo fx d2" style="margin-top:56px">
+    <div class="f osc2"><span class="big num" style="font-size:72px;display:block">25-50</span>conversaciones</div><div class="fl"></div>
+    <div class="f osc2"><span class="big num" style="font-size:72px;display:block">3</span>reuniones</div><div class="fl"></div>
+    <div class="f osc2"><span class="big num" style="font-size:72px;display:block">2</span>demos de 48 h</div><div class="fl"></div>
+    <div class="f osc2"><span class="big num" style="font-size:72px;display:block">2</span>propuestas</div><div class="fl"></div>
+    <div class="f fer2"><span class="big num" style="font-size:72px;display:block">1</span>cierre</div>
+  </div>
+  <div class="cards fx d3" style="grid-template-columns:repeat(3,1fr);margin-top:44px">
+    <div class="card"><h3>La red de Fer cierra más</h3><p>40 a 50% de las reuniones, sin pagar anuncios. Por eso diciembre sale de ahí: 6 reuniones por semana desde el 30/11.</p></div>
+    <div class="card"><h3>Los anuncios tardan</h3><p>Una fábrica lo piensa de 3 a 8 semanas. Lo que entre en diciembre se cierra en enero. Con $500-800 mil por mes alcanza.</p></div>
+    <div class="card"><h3>Demo solo al que califica</h3><p>Después de la primera llamada y si decide el dueño, tiene el problema y puede pagar. Si no, se comen las horas.</p></div>
+  </div>
+  <div class="pie"><img src="../img/logo-blanco.png" alt=""><span>6</span></div>
+</section>
+
+<!-- 7 LECCION -->
+<section class="slide">
+  <div class="eyebrow fx">Lo que aprendimos con la campaña de barrio</div>
+  <h2 class="fx d1">La gente escribe. Lo que se pierde es contestar y agendar.</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:40px">
+    <div class="fx d2">
+      <div class="embudo">
+        <div style="--w:100%"><span class="num">69</span> personas escribieron (con ~$60 mil de anuncios)</div>
+        <div style="--w:77%"><span class="num">16</span> nunca recibieron un mensaje de una persona</div>
+        <div style="--w:56%"><span class="num">14</span> reuniones propuestas</div>
+        <div style="--w:30%" class="neg"><span class="num">2</span> reuniones hechas · 2 cierres</div>
+      </div>
+      <p style="font-size:18px;color:var(--sub);margin-top:20px;line-height:1.5">La llamada salió bien. Se rompió con el "el día y la hora lo arreglamos por mensaje".</p>
+    </div>
+    <div class="fx d3">
+      <div class="card" style="background:var(--teal);color:#fff"><div class="tag" style="color:var(--subo)">Harvard Business Review · 2.241 empresas</div><h3>Contestar en la primera hora da 7 veces más chances</h3><p style="color:#C9D3DD">de llegar a hablar con el que decide. Y 60 veces más que esperar un día.</p></div>
+      <div class="card" style="margin-top:18px"><div class="tag">MIT / InsideSales · 15.000 consultas</div><h3>Los primeros 5 minutos valen oro</h3><p>A los 10 minutos las chances ya bajan mucho. Y más del 30% de las consultas nunca se contestan.</p></div>
+    </div>
+  </div>
+  <div class="pie"><img src="../img/logo-negro.png" alt=""><span>7</span></div>
+</section>
+
+<!-- 8 ATENCION -->
+<section class="slide osc">
+  <div class="eyebrow fx">Propuesta para aprobar hoy</div>
+  <h2 class="fx d1">Las 5 reglas de atención de Octano.</h2>
+  <div class="check reglas" style="grid-template-columns:1fr">
+    <div class="fx d2"><div class="nn num">1</div><div><h3>Una persona contesta en menos de 5 minutos</h3><p>Lunes a viernes de 8 a 21 y sábados de 9 a 13. De noche contesta el automático, y a las 8:30 ya está todo respondido.</p></div></div>
+    <div class="fx d3"><div class="nn num">2</div><div><h3>El primer mensaje ya ofrece la llamada</h3><p>Con dos horarios concretos o el link de la agenda. Si dice "ahora", se lo llama en menos de 15 minutos.</p></div></div>
+    <div class="fx d4"><div class="nn num">3</div><div><h3>Ninguna llamada termina sin la reunión puesta</h3><p>Día, hora y lugar, cargados en el CRM mientras se habla. Confirmación al toque y dos recordatorios.</p></div></div>
+    <div class="fx d5"><div class="nn num">4</div><div><h3>Siempre hay alguien de guardia, con nombre</h3><p>El call center de 8 a 18; Mateo y Santi de 18 a 21. La charla de 30 minutos la hace Fer, dentro de los 3 días.</p></div></div>
+    <div class="fx d6"><div class="nn num">5</div><div><h3>Al que no contesta, 5 toques en 10 días</h3><p>Llamada, mensaje en otra franja, un video que sirva y el "te dejo tranquilo". Nadie se va a dormir con una consulta en rojo.</p></div></div>
+  </div>
+  <div class="pie"><img src="../img/logo-blanco.png" alt=""><span>8</span></div>
+</section>
+
+<!-- 9 PAQUETES -->
+<section class="slide">
+  <div class="eyebrow fx">Precios · lo cerramos con Fer</div>
+  <h2 class="fx d1">Cuatro paquetes con mínimo y máximo. Cada propuesta, a medida.</h2>
+  <table class="fx d2" style="font-size:19px;margin-top:30px">
+    <tr><th style="width:24%">Paquete</th><th style="width:40%">Qué incluye</th><th>Entrada</th><th>Mensual</th></tr>
+    <tr><td><b>1 · Arranque WhatsApp</b><br><span class="s">la puerta de entrada</span></td><td>WhatsApp que contesta solo, planilla de clientes y anuncios en Meta</td><td class="num n2">$700-900 mil</td><td class="num n2">$400-500 mil</td></tr>
+    <tr><td><b>2 · Fábrica que vende</b></td><td>Web con catálogo, WhatsApp, anuncios en Meta y Google, atención de consultas y reporte. Redes opcional</td><td class="num n2">$1,5-2 M</td><td class="num n2">$1-1,5 M</td></tr>
+    <tr><td><b>3 · Empresa ordenada</b></td><td>Sistema de gestión a medida por etapas (pedidos, stock, clientes, cobros) y mantenimiento</td><td class="num n2">$4,5-6 M</td><td class="num n2">$300-450 mil</td></tr>
+    <tr><td><b>4 · Todo Octano</b></td><td>El 2 y el 3, más capacitación a vendedores, asesoramiento de Fer y mejora de procesos en planta</td><td class="num n2">$6-8 M</td><td class="num n2">$1,8-2,5 M</td></tr>
+  </table>
+  <p class="lead fx d3" style="font-size:19px;margin-top:24px">Mínimo 6 meses (sistemas 12), ajuste cada 3 meses y los anuncios los paga la empresa aparte. <b style="color:var(--negro)">Ningún proyecto sale sin su mensual.</b> Para cerrar hoy: si Fer está de acuerdo con estos rangos y cuánto cobra su asesoramiento.</p>
+  <div class="pie"><img src="../img/logo-negro.png" alt=""><span>9</span></div>
+</section>
+
+<!-- 10 EXTERIOR -->
+<section class="slide">
+  <div class="eyebrow fx">Afuera</div>
+  <h2 class="fx d1">Un cliente en dólares vale como uno y medio de acá, y no lo come la inflación.</h2>
+  <div class="paises fx d2">
+    <div class="pa uno"><span class="num">1</span><h3>Uruguay</h3><p>Hablan como nosotros, mismo horario y más plata. Allá las software factories piden mínimos de USD 5.000 a 10.000: el hueco está abajo de eso.</p></div>
+    <div class="pa"><span class="num">2</span><h3>Paraguay</h3><p>La economía que más crece y mucha fábrica nueva. Hoy con una crisis política y de un banco: esperar unas semanas.</p></div>
+    <div class="pa"><span class="num">3</span><h3>Chile</h3><p>Grande y con plata, pero con más competencia y hay que hablar con "tú".</p></div>
+    <div class="pa"><span class="num">4</span><h3>España</h3><p>La que más paga y la más competida. Conviene cuando Fer viaje a Sabadell.</p></div>
+    <div class="pa"><span class="num">5</span><h3>Bolivia</h3><p>No hay dólares y a las empresas les cuesta pagar afuera. Al final.</p></div>
+  </div>
+  <div class="card fx d3" style="margin-top:30px;background:var(--teal);color:#fff"><h3>Cómo cobrar: factura Fer, con factura E, a una cuenta en dólares a su nombre</h3><p style="color:#C9D3DD">Desde septiembre de 2025 se pueden quedar los dólares sin pasarlos a pesos. En Uruguay retienen 12%: el precio va "más impuestos de tu país". Todo esto lo confirma el contador.</p></div>
+  <div class="pie"><img src="../img/logo-negro.png" alt=""><span>10</span></div>
+</section>
+
+<!-- 11 GRABACION -->
+<section class="slide ind">
+  <div class="eyebrow fx">La primera grabación</div>
+  <h2 class="fx d1">Los tres por igual como cara. Fer serio, Mateo y Santi cercanos.</h2>
+  <div class="cards" style="grid-template-columns:1fr 1fr;margin-top:44px">
+    <div class="card fx d2"><div class="tag">Lo que tiene que traer Fer</div>
+      <ul class="lista">
+        <li>Sus números reales: años en fábricas, proyectos que llevó</li>
+        <li>Una historia de un error caro por falta de orden</li>
+        <li>Un cuaderno de pedidos gastado</li>
+        <li>Si se puede, una máquina o una planta para grabar</li>
+      </ul></div>
+    <div class="card fx d3"><div class="tag">Qué sale de ahí</div>
+      <ul class="lista">
+        <li>La presentación de cada uno (idea de Fer)</li>
+        <li>Los primeros reels para Instagram, TikTok y Facebook</li>
+        <li>El video de la web, mezclado con las escenas animadas</li>
+        <li>Fotos de los tres para la web y LinkedIn</li>
+      </ul></div>
+  </div>
+  <p class="lead fx d4" style="margin-top:34px">Falta elegir: <b style="color:#fff">el día (¿viernes 13?) y el lugar.</b> Subtítulos grandes, cortes rápidos y la palabra clave resaltada; lo edita Claude.</p>
+  <div class="pie"><img src="../img/logo-blanco.png" alt=""><span>11</span></div>
+</section>
+
+<!-- 12 LO QUE DEPENDE DE FER -->
+<section class="slide">
+  <div class="eyebrow fx">Lo que solo puede hacer Fer</div>
+  <h2 class="fx d1">Varias cosas piden un adulto con CUIT. Son las que destraban todo.</h2>
+  <div class="cards" style="grid-template-columns:repeat(3,1fr);margin-top:40px;gap:18px">
+    <div class="card fx d2"><div class="tag">Ya</div><h3>La lista de ~10 empresas</h3><p>Para arrancar diciembre con 6 reuniones por semana. Es lo número uno del plan.</p></div>
+    <div class="card fx d2"><div class="tag">Ya</div><h3>El dominio</h3><p>octanoempresas.com.ar está libre. Se compra en nic.ar con Clave Fiscal nivel 2.</p></div>
+    <div class="card fx d3"><div class="tag">Ya</div><h3>Cuenta para el CRM</h3><p>Abrir Supabase (la base de datos) con un mail de la agencia. Gratis, 10 minutos.</p></div>
+    <div class="card fx d3"><div class="tag">INPI</div><h3>Cómo es su asesoría</h3><p>El agente espera ese detalle, y que confirme OCTANO u OCTANO EMPRESAS, nombre o logo.</p></div>
+    <div class="card fx d4"><div class="tag">Call center</div><h3>Las 2 personas</h3><p>Y cómo cobran. Pueden tener a Octano de primer cliente: contestar nuestro WhatsApp desde la campaña.</p></div>
+    <div class="card fx d4"><div class="tag">Antes de diciembre</div><h3>El contador</h3><p>$10 millones por mes es el tope del monotributo K. Las empresas además van a pedir factura A.</p></div>
+  </div>
+  <div class="pie"><img src="../img/logo-negro.png" alt=""><span>12</span></div>
+</section>
+
+<!-- 13 PARA DECIDIR -->
+<section class="slide osc">
+  <div class="eyebrow fx">Para decidir hoy entre los tres</div>
+  <h2 class="fx d1">Ocho decisiones para salir del meet con todo claro.</h2>
+  <div class="check">
+    <div class="fx d2"><span class="bx"></span><div><h3>Precios</h3><p>Los 4 paquetes con mínimo y máximo, y el precio del asesoramiento.</p></div></div>
+    <div class="fx d2"><span class="bx"></span><div><h3>Atención</h3><p>Aprobar las 5 reglas y armar la grilla de guardias.</p></div></div>
+    <div class="fx d3"><span class="bx"></span><div><h3>Call center</h3><p>Comisión por venta, por reunión o fijo. Y qué le cobramos a la empresa.</p></div></div>
+    <div class="fx d3"><span class="bx"></span><div><h3>Campaña de prueba</h3><p>$150 mil desde el ~23/11 para medir cuánto sale cada conversación. Cómo la pagamos.</p></div></div>
+    <div class="fx d4"><span class="bx"></span><div><h3>Grabación</h3><p>Día y lugar.</p></div></div>
+    <div class="fx d4"><span class="bx"></span><div><h3>Gastos de arranque</h3><p>Anuncios, dominio, chip y herramientas: cómo se reparten.</p></div></div>
+    <div class="fx d5"><span class="bx"></span><div><h3>Los papeles</h3><p>Acuerdo simple firmado por los tres y quién factura.</p></div></div>
+    <div class="fx d5"><span class="bx"></span><div><h3>Oficina</h3><p>Cuándo y dónde, para diciembre.</p></div></div>
+  </div>
+  <div class="pie"><img src="../img/logo-blanco.png" alt=""><span>13</span></div>
+</section>
+
+<!-- 14 CALENDARIO -->
+<section class="slide">
+  <div class="eyebrow fx">Cómo seguimos</div>
+  <h2 class="fx d1">De acá a diciembre, en cuatro pasos.</h2>
+  <div class="linea">
+    <div class="et fx d2"><div class="barra"></div><div class="cuando">13 al 15/11</div><h3>Grabar y destrabar</h3><ul><li>Grabación entre los tres</li><li>Lista de empresas de Fer</li><li>Dominio y cuenta del CRM</li><li>Usuarios en las 4 redes</li></ul></div>
+    <div class="et fx d3"><div class="barra"></div><div class="cuando">16 al 22/11</div><h3>Dejar todo andando</h3><ul><li>Web con dominio, fotos y video</li><li>CRM publicado y con usuarios</li><li>WhatsApp del chip con respuestas</li><li>Primeras publicaciones</li><li>Charla con el contador</li></ul></div>
+    <div class="et fx d4"><div class="barra"></div><div class="cuando">23 al 29/11</div><h3>Probar</h3><ul><li>Campaña de prueba de $150 mil</li><li>Guardias funcionando</li><li>4 videos publicados</li><li>Primeras reuniones de la red de Fer</li></ul></div>
+    <div class="et fx d5"><div class="barra"></div><div class="cuando">Desde el 30/11</div><h3>Salir a vender</h3><ul><li>6 reuniones por semana</li><li>2 clientes en diciembre, uno con sistema</li><li>Reuniones de enero agendadas antes del 20/12</li><li>Desde el 15/12, Mateo y Santi de lleno</li></ul></div>
+  </div>
+  <div class="pie"><img src="../img/logo-negro.png" alt=""><span>14</span></div>
+</section>
+
+<!-- 15 CIERRE -->
+<section class="slide" style="padding:0;background:var(--teal)">
+  <div class="corte" style="right:-120px;top:0;width:900px;height:900px">
+    <i style="left:330px;width:170px;background:rgba(255,255,255,.08)"></i>
+    <i style="left:540px;width:220px;background:var(--indigo)"></i>
+    <i style="left:800px;width:320px;background:#000"></i>
+  </div>
+  <div style="position:absolute;left:110px;top:170px;width:860px;color:#fff">
+    <div class="eyebrow fx" style="color:var(--subo)">Las 3 cosas que tienen que pasar sí o sí</div>
+    <ol class="fin fx d1">
+      <li><span class="num">1</span>Fer arranca diciembre con 6 reuniones por semana y cerramos 2 clientes, uno con sistema.</li>
+      <li><span class="num">2</span>Contestamos en menos de 5 minutos y cada charla seria termina con una reunión puesta.</li>
+      <li><span class="num">3</span>Todo atado a un mensual, para que en febrero haya al menos $3 millones fijos.</li>
+    </ol>
+  </div>
+  <div class="pie" style="left:110px"><img src="../img/logo-blanco.png" alt="" style="height:30px"><span></span></div>
+</section>
+</div></div>
+<div class="flecha" id="izq"></div><div class="flecha" id="der"></div>
+<div id="contn"></div>
+<div id="ayuda">Flechas para avanzar · F pantalla completa</div>
+<script>
+(function () {
+  var stage = document.getElementById('stage');
+  var slides = [].slice.call(document.querySelectorAll('.slide'));
+  var i = 0;
+  function escala() { stage.style.transform = 'scale(' + Math.min(innerWidth / 1600, innerHeight / 900) + ')'; }
+  addEventListener('resize', escala); escala();
+  function contar(el) {
+    var fin = +el.dataset.cuenta, t0 = null, dur = 1400;
+    function paso(t) { if (!t0) t0 = t; var p = Math.min(1, (t - t0) / dur); el.textContent = Math.round(fin * (1 - Math.pow(1 - p, 3))).toLocaleString('es-AR'); if (p < 1) requestAnimationFrame(paso); }
+    el.textContent = '0'; setTimeout(function () { requestAnimationFrame(paso); }, 450);
+  }
+  function ir(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+    document.getElementById('prog').style.width = ((i + 1) / slides.length * 100) + '%';
+    document.getElementById('contn').textContent = (i + 1) + ' / ' + slides.length;
+    if (i > 0) document.getElementById('ayuda').style.opacity = 0;
+    [].forEach.call(slides[i].querySelectorAll('[data-cuenta]'), contar);
+    history.replaceState(null, '', '#' + (i + 1));
+  }
+  addEventListener('keydown', function (e) {
+    if (['ArrowRight', 'PageDown', ' ', 'Enter'].indexOf(e.key) > -1) { e.preventDefault(); ir(i + 1); }
+    if (['ArrowLeft', 'PageUp', 'Backspace'].indexOf(e.key) > -1) { e.preventDefault(); ir(i - 1); }
+    if (e.key === 'f' || e.key === 'F') { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); }
+    if (e.key === 'Home') ir(0);
+    if (e.key === 'End') ir(slides.length - 1);
+  });
+  document.getElementById('der').onclick = function () { ir(i + 1); };
+  document.getElementById('izq').onclick = function () { ir(i - 1); };
+  var x0 = null;
+  addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; });
+  addEventListener('touchend', function (e) { if (x0 === null) return; var d = e.changedTouches[0].clientX - x0; if (Math.abs(d) > 40) ir(i + (d < 0 ? 1 : -1)); x0 = null; });
+  ir((parseInt(location.hash.slice(1), 10) || 1) - 1);
+})();
+</script>
+</body>
+</html>
